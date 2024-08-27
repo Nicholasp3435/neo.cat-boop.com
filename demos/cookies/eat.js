@@ -51,12 +51,25 @@ setInterval(spawnFood, 3000);
 
 const muteImg = document.getElementById("muteImg");
 let isMute = false;
+if (localStorage.getItem("isCrunchMute") === null) {
+    localStorage.isCrunchMute = false;
+}
+
 
 function toggleSound() {
     if (isMute) {
         isMute = false;
         muteImg.src = "sound.png";
     } else {
+        isMute = true;
+        muteImg.src = "mute.png";
+    }
+    localStorage.isCrunchMute = isMute;
+}
+
+initToggleSounds();
+function initToggleSounds() {
+    if (localStorage.getItem("isCrunchMute") === "true") {
         isMute = true;
         muteImg.src = "mute.png";
     }
