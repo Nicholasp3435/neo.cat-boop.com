@@ -34,6 +34,7 @@ function spawnFood() {
     newFood.classList.add("eatable");
     newFood.style.top = getRandomInt(0, window.innerHeight - 128) + "px";
     newFood.style.left = getRandomInt(0, window.innerWidth - 128) + "px";
+    newFood.style.transform = "rotate(" + getRandomInt(0, 359) + "deg)";
     document.body.appendChild(newFood);
 }
 
