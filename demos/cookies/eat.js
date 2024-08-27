@@ -11,7 +11,15 @@ function filter(e) {
     let amount = target.src.split("_")[1].split(".")[0];
     if (amount == 25) {
         target.remove();
+        if (!isMute) {
+            var audio = new Audio('sounds/Burp.ogg');
+            audio.play();
+        }
         return;
+    }
+    if (!isMute) {
+        var audio = new Audio(`sounds/Eat${getRandomInt(1,3)}.ogg`);
+        audio.play();
     }
     target.src = name + (amount - 25) + ".png";
 }
@@ -34,8 +42,22 @@ function spawnFood() {
     newFood.classList.add("eatable");
     newFood.style.top = getRandomInt(0, window.innerHeight - 128) + "px";
     newFood.style.left = getRandomInt(0, window.innerWidth - 128) + "px";
-    newFood.style.transform = "rotate(" + getRandomInt(0, 359) + "deg)";
+    newFood.style.transform = `rotate(${getRandomInt(0, 359)}deg)`;
     document.body.appendChild(newFood);
 }
 
+spawnFood();
 setInterval(spawnFood, 3000);
+
+const muteImg = document.getElementById("muteImg");
+let isMute = false;
+
+function toggleSound() {
+    if (isMute) {
+        isMute = false;
+        muteImg.src = "sound.png";
+    } else {
+        isMute = true;
+        muteImg.src = "mute.png";
+    }
+}

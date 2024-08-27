@@ -8,3 +8,12 @@ img.eatable {
     position: absolute !important;
 }
 
+button#mute {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 3;
+    img {
+        height: 1rem;
+    }
+}
