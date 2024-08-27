@@ -1,0 +1,26 @@
+html {
+    background-image: url("stars.gif");
+}
+
+/** ↓ Modified from https://nickolox.com/about */
+.draggable {
+    width: fit-content;
+    height: fit-content;
+    position: absolute !important;
+    z-index: 2;
+    img {
+        pointer-events: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none; 
+        image-rendering: pixelated;
+    }
+}
+
+#venus {top: 50%; left: 20%; }
+#mars {top: 20%; left: 12%; }
+#saturn {top: 15%; left: 78%; }
+#jupiter {top: 63%; left: 43%; }
+/** ↑ Modified from https://nickolox.com/about */
+
+
