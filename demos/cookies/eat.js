@@ -1,3 +1,5 @@
+/** food click js */
+
 const eatElements = document.getElementsByClassName("eatable");
 const foods = ['cookie'];
 
@@ -18,7 +20,7 @@ function filter(e) {
         return;
     }
     if (!isMute) {
-        var audio = new Audio(`sounds/Eat${getRandomInt(1,3)}.ogg`);
+        var audio = new Audio(`sounds/Eat${getRandomInt(1, 3)}.ogg`);
         audio.play();
     }
     target.src = name + (amount - 25) + ".png";
@@ -27,21 +29,23 @@ function filter(e) {
 document.onmousedown = filter;
 document.ontouchstart = filter;
 
+
+/** rng food js */
+
 function getRandomInt(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
 }
-  
-  
 
 function spawnFood() {
     let newFood = document.createElement("img");
     let randFood = foods[getRandomInt(0, foods.length)];
     newFood.src = randFood + "_100.png";
     newFood.classList.add("eatable");
-    newFood.style.top = getRandomInt(0, window.innerHeight - 128) + "px";
-    newFood.style.left = getRandomInt(0, window.innerWidth - 128) + "px";
+    // 155 because the diagonal makes the 128 actually longer and push off the screen making scroll bars
+    newFood.style.top = getRandomInt(0, window.innerHeight - 155) + "px";
+    newFood.style.left = getRandomInt(0, window.innerWidth - 155) + "px";
     newFood.style.transform = `rotate(${getRandomInt(0, 359)}deg)`;
     document.body.appendChild(newFood);
 }
@@ -49,12 +53,14 @@ function spawnFood() {
 spawnFood();
 setInterval(spawnFood, 3000);
 
+
+/** mute js */
+
 const muteImg = document.getElementById("muteImg");
 let isMute = false;
 if (localStorage.getItem("isCrunchMute") === null) {
     localStorage.isCrunchMute = false;
 }
-
 
 function toggleSound() {
     if (isMute) {
