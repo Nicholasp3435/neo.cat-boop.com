@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="title" content="Notificationss Demo :3">
+    <meta name="description" content="Silly notification demo :3">
+    <meta content="#af6cd6" name="theme-color">
+    <title>Notifications Demo</title>
+    <style>
+        html {
+            background-image: url("/images/stars.gif");
+        }
+        h4 {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- from https://lilysthings.org/ -->
+    <div class="ntfy-box">
+        <h4>send a notification directly to my phone; please be funny.</h4>
+        <textarea id="ntfy-input" placeholder="whats up"></textarea>
+        <button onclick="sendNotification()" style="margin-left:10px;">Send</button>
+    </div>
+    <script>
+        // both
+        function send(message) {
+            let r = new XMLHttpRequest()
+            r.open("POST", "https://ntfy.sh/nic3435", true);
+            r.setRequestHeader("Content-Type", "text/plain");
+            r.send(message);
+          }
+
+          // send notification
+          let ntfyInput = document.getElementById("ntfy-input");
+          function sendNotification() {
+            if (ntfyInput.value.length <= 0) return;
+            send(ntfyInput.value);
+            ntfyInput.value = "";
+            ntfyInput.placeholder = "sent :3";
+          }
+
+    </script>
+</body>
+
+</html> 
