@@ -1,0 +1,34 @@
+html {
+    background-image: url("/images/stars.gif");
+}
+
+button#mute {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 3;
+    /** makes the button turn square :3 */
+    background-color: white;
+    img {
+        height: 1rem;
+    }
+}
+
+div.boxDiv {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    
+    image-rendering: pixelated;
+    display: flex;
+    justify-content: center;
+    img {
+        position: absolute;
+    }
+    img.box_inside {
+        position: absolute;
+        height: 83px;
+        top: -5px;;
+    }
+}
+
