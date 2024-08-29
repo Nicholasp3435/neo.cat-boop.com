@@ -22,7 +22,15 @@ function filter(e) {
     box_inside.classList.add("jumping");    
 
     const jump_anim = box_inside.animate(jump, 1000);
-    box_inside.src = `eevees/${boxJumpables[getRandomInt(0, 8)]}.png`;
+    
+    let rand_mon = boxJumpables[getRandomInt(0, 8)];
+
+    if (!isMute) {
+        var audio = new Audio(`eevees/${rand_mon}.mp3`);
+        audio.volume = 0.25;
+        audio.play();
+    }
+    box_inside.src = `eevees/${rand_mon}.png`;
 
     jump_anim.addEventListener("finish", (event) => {
         box_inside.classList.remove("jumping");   
