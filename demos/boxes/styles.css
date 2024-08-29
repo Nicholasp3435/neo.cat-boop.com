@@ -15,10 +15,12 @@ button#mute {
 }
 
 div.boxDiv {
+    scale: 2;
+
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
-    
+
     image-rendering: pixelated;
     display: flex;
     justify-content: center;
