@@ -21,9 +21,9 @@ function filter(e) {
 
     box_inside.classList.add("jumping");    
 
-    const jump_anim = box_inside.animate(jump, 1000);
+    const jump_anim = box_inside.animate(jump, 1100);
     
-    let rand_mon = boxJumpables[getRandomInt(0, 8)];
+    let rand_mon = boxJumpables[getRandomInt(0, boxJumpables.length)];
 
     if (!isMute) {
         var audio = new Audio(`eevees/${rand_mon}.mp3`);

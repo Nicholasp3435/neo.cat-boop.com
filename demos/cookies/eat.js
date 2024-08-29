@@ -51,7 +51,7 @@ function spawnFood() {
 }
 
 spawnFood();
-setInterval(spawnFood, 3000);
+var cookie_interval = setInterval(spawnFood, 3000);
 
 
 /** mute js */
