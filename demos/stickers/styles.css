@@ -9,12 +9,14 @@ html {
     height: fit-content;
     position: absolute !important;
     z-index: 2;
-    img {
-        pointer-events: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        user-select: none; 
-    }
+}
+
+
+img {
+    pointer-events: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none; 
 }
 
 #venus {top: 50%; left: 20%; }
@@ -22,5 +24,6 @@ html {
 #saturn {top: 15%; left: 78%; }
 #jupiter {top: 63%; left: 43%; }
 /** ↑ Modified from https://nickolox.com/about */
+
 
 

@@ -13,9 +13,12 @@ button#mute {
     top: 1rem;
     left: 1rem;
     z-index: 3;
+    height: 2rem;
+    width: 2rem;
     /** makes the button turn square :3 */
     background-color: white;
     img {
         height: 1rem;
+        width: 1rem;
     }
 }

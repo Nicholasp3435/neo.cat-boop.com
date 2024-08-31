@@ -34,7 +34,7 @@ function filter(e) {
 
     jump_anim.addEventListener("finish", (event) => {
         box_inside.classList.remove("jumping");   
-        box_inside.src = "";
+        box_inside.removeAttribute('src');
     });
     
 }

@@ -1,3 +1,6 @@
+// Code by mmaismma on Stack Overflow
+// https://stackoverflow.com/a/63425707
+
 const d = document.getElementsByClassName("draggable");
 
 for (let i = 0; i < d.length; i++) {
