@@ -1,5 +1,5 @@
 html {
-    background-image: url("/images/stars.gif");
+    background-image: url("../../images/stars.gif");
     image-rendering: pixelated;
 }
 
@@ -12,10 +12,12 @@ button#mute {
     width: 2rem;
     /** makes the button turn square :3 */
     background-color: white;
-    img {
-        height: 1rem;
-        width: 1rem;
-    }
+
+}
+
+img#muteImg {
+    height: 1rem;
+    width: 1rem;
 }
 
 div.boxDiv {
@@ -41,4 +43,20 @@ img.box_inside {
 
 img.box_front {
     z-index: 2;
+}
+
+.jumping {
+    animation: Jump 1.2s linear;
+}
+
+@keyframes Jump {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-100px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(359deg);
+    }    
 }

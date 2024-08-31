@@ -4,14 +4,16 @@ const eatElements = document.getElementsByClassName("eatable");
 const foods = ['cookie'];
 
 function filter(e) {
-    let target = e.target;
+    const target = e.target;
 
     if (!target.classList.contains("eatable")) {
         return;
     }
-    let name = target.src.split("_")[0] + "_";
-    let amount = target.src.split("_")[1].split(".")[0];
-    if (amount == 25) {
+
+    const name = target.src.split("_")[0] + "_";
+    const amount = target.src.split("_")[1].split(".")[0];
+    
+    if (amount <= 25) {
         target.remove();
         if (!isMute) {
             var audio = new Audio('sounds/Burp.ogg');
@@ -20,7 +22,7 @@ function filter(e) {
         return;
     }
     if (!isMute) {
-        var audio = new Audio(`sounds/Eat${getRandomInt(1, 3)}.ogg`);
+        var audio = new Audio("sounds/Eat" + getRandomInt(1, 4) + ".ogg");
         audio.play();
     }
     target.src = name + (amount - 25) + ".png";
@@ -39,14 +41,15 @@ function getRandomInt(min, max) {
 }
 
 function spawnFood() {
-    let newFood = document.createElement("img");
-    let randFood = foods[getRandomInt(0, foods.length)];
+    const newFood = document.createElement("img");
+    const randFood = foods[getRandomInt(0, foods.length)];
     newFood.src = randFood + "_100.png";
     newFood.classList.add("eatable");
+
     // 155 because the diagonal makes the 128 actually longer and push off the screen making scroll bars
     newFood.style.top = getRandomInt(0, window.innerHeight - 155) + "px";
     newFood.style.left = getRandomInt(0, window.innerWidth - 155) + "px";
-    newFood.style.transform = `rotate(${getRandomInt(0, 359)}deg)`;
+    newFood.style.transform = "rotate(" + getRandomInt(0, 360) + "deg)";
     document.body.appendChild(newFood);
 }
 
@@ -57,7 +60,7 @@ var cookie_interval = setInterval(spawnFood, 3000);
 /** mute js */
 
 const muteImg = document.getElementById("muteImg");
-let isMute = false;
+var isMute = false;
 if (localStorage.getItem("isCrunchMute") === null) {
     localStorage.isCrunchMute = false;
 }
