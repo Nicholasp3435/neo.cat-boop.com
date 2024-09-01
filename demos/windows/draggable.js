@@ -60,6 +60,9 @@ function filter(e) {
 
   function endDrag() {
     target.moving = false;
+    
+
+    
   }
   target.onmouseup = endDrag;
   //NOTICE THIS 👇
@@ -70,3 +73,74 @@ document.onmousedown = filter;
 //NOTICE THIS 👇
 document.ontouchstart = filter;
 //NOTICE THIS 👆
+
+
+function openInNewTab(url) {
+  window.open(url, '_blank').focus();
+}
+
+const windowBar = document.getElementById("windows");
+
+function makeWindow(src, id, name, icon) {
+  const window = document.createElement('div');
+  window.classList.add("draggable");
+  window.id = id;
+
+  const backImg = document.createElement('img');
+  backImg.classList.add("back");
+  window.appendChild(backImg);
+
+  const iconImg = document.createElement('img');
+  iconImg.classList.add("icon");
+  iconImg.src = icon;
+  window.appendChild(iconImg);
+
+  const title = document.createElement('p');
+  title.innerHTML = name;
+  window.appendChild(title);
+
+  const xBtn = document.createElement('button');
+
+  const windowBtn = document.createElement('button');
+
+  xBtn.classList.add("x");
+  xBtn.innerHTML = "X";
+  xBtn.onclick = function() {window.remove(); windowBtn.remove();};
+  window.appendChild(xBtn);
+
+  const maxBtn = document.createElement('button');
+  maxBtn.classList.add("max");
+  maxBtn.innerHTML = "□";
+  maxBtn.onclick = function() {openInNewTab(src);};
+  window.appendChild(maxBtn);
+
+  const minBtn = document.createElement('button');
+  minBtn.classList.add("min");
+  minBtn.innerHTML = "_";
+  minBtn.onclick = function() {
+    window.style.visibility = "hidden";
+  };
+  window.appendChild(minBtn);
+
+  const mainFrame = document.createElement('iframe');
+  mainFrame.classList.add("windowFrame");
+  mainFrame.src = src;
+  window.appendChild(mainFrame);
+
+  document.body.appendChild(window);
+
+  // declared earlier
+  windowBtn.innerHTML = name;
+  windowBtn.onclick  = function() {
+    if (window.style.visibility === "hidden") {
+      window.style.visibility = "unset";
+      window.style.zIndex = highestZ;
+      highestZ++;
+    } else {
+      window.style.visibility = "hidden";
+    }
+  };
+
+  windowBar.appendChild(windowBtn);
+
+}

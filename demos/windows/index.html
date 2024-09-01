@@ -9,51 +9,41 @@
 </head>
 
 <body>
-    <div class="draggable">
-        <img id="back">
-        <img id="icon" src="https://www.cocoamilka.art/images/icons/cocoaPlush.png">
-        <p>CocoaMilka</p>
-        <button class="x">X</button>
-        <iframe
-            class="windowFrame"
-            src="https://www.cocoamilka.art/">
-        </iframe>
-    </div>
-
-    <div class="draggable">
-        <img id="back">
-        <img id="icon" src="">
-        <p>Resursive?</p>
-        <button class="x">X</button>
-        <iframe
-            class="windowFrame"
-            src="..">
-        </iframe>
-    </div>
-
-    <div class="draggable">
-        <img id="back">
-        <img id="icon" src="">
-        <p>Cat Boop</p>
-        <button class="x">X</button>
-        <iframe
-            class="windowFrame"
-            src="https://cat-boop.com">
-        </iframe>
-    </div>
-
-    <div class="draggable">
-        <img id="back">
-        <img id="icon" src="">
-        <p>Example</p>
-        <button class="x">X</button>
-        <iframe
-            class="windowFrame"
-            src="https://example.com">
-        </iframe>
+    <div id="taskbar">
+        <span id="start">
+            start
+        </span>
+        <span id="windows">
+        </span>
     </div>
 
     <script src="draggable.js"></script>
+    <script>
+        makeWindow(
+            "https://www.cocoamilka.art/",
+            "cocoamilka",
+            "Cocoa Milka",
+            "https://www.cocoamilka.art/images/icons/cocoaPlush.png"
+        );
+        makeWindow(
+            "..",
+            "self",
+            "Recursive?",
+            ""
+        );
+        makeWindow(
+            "https://www.example.com/",
+            "example",
+            "Example",
+            ""
+        );
+        makeWindow(
+            "https://www.cat-boop.com/",
+            "cat-boop",
+            "Cat Boop :3",
+            ""
+        );
+    </script>
 </body>
 
 </html> 
