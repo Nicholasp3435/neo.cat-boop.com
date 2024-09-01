@@ -21,13 +21,12 @@ img#muteImg {
 }
 
 div.boxDiv {
-
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
 
     display: flex;
-    justify-content: center;
+    position: relative;
 
 }
 
@@ -36,13 +35,14 @@ img.box_back {
 }
 
 img.box_inside {
-    position: absolute;
     height: 83px;
     top: -5px;
+    left: 25%;
+    position: absolute;
 }
 
 img.box_front {
-    z-index: 2;
+    z-index: 1;
 }
 
 .jumping {
