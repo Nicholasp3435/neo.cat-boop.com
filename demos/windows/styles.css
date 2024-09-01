@@ -1,0 +1,65 @@
+html {
+    background-image: url("../../images/stars.gif");
+    image-rendering: pixelated;
+}
+
+/** ↓ Modified from https://nickolox.com/about */
+.draggable {
+    width: fit-content;
+    height: fit-content;
+    position: absolute !important;
+    display: flex;
+    position: relative;
+
+    z-index: 1;
+
+    img#back {
+        background-color: #0055e7;
+        width: 51rem;
+        height: 32rem;
+    }
+    img#icon{
+        height: 1.5rem;
+        position: absolute;
+    }
+    p {
+        top: -2.5%;
+        left: 3%;
+        color: white;
+        position: absolute;
+        pointer-events: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none; 
+    }
+    button {
+        position: absolute;
+        right: 0.25%;
+        top: 0.25%;
+        background-color: red;
+        border-radius: 5px;
+
+        color: white;
+    }
+    iframe {
+        width: 50rem;
+        height: 30rem;
+    
+        position: absolute;
+        left: 0.5%;
+        bottom: 0.5%;
+    }
+}
+
+
+
+img {
+    pointer-events: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none; 
+}
+/** ↑ Modified from https://nickolox.com/about */
+
+
+
