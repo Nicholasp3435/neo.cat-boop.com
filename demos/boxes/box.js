@@ -28,12 +28,12 @@ function filter(e) {
     const rand_mon = boxJumpables[getRandomInt(0, boxJumpables.length)];
 
     if (!isMute) {
-        var audio = new Audio("eevees/" + rand_mon + ".mp3");
+        var audio = new Audio("eevees/sounds/" + rand_mon + ".opus");
         audio.volume = 0.25;
         audio.play();
     }
 
-    box_inside.src = "eevees/" + rand_mon + ".png";
+    box_inside.src = "eevees/imgs/" + rand_mon + ".gif";
 
     setTimeout(function() {
         box_inside.classList.remove("jumping");
@@ -64,10 +64,10 @@ if (localStorage.getItem("isCrunchMute") === null) {
 function toggleSound() {
     if (isMute) {
         isMute = false;
-        muteImg.src = "sound.png";
+        muteImg.src = "sound.gif";
     } else {
         isMute = true;
-        muteImg.src = "mute.png";
+        muteImg.src = "mute.gif";
     }
     localStorage.isCrunchMute = isMute;
 }
@@ -76,6 +76,6 @@ initToggleSounds();
 function initToggleSounds() {
     if (localStorage.getItem("isCrunchMute") === "true") {
         isMute = true;
-        muteImg.src = "mute.png";
+        muteImg.src = "mute.gif";
     }
 }

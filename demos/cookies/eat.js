@@ -16,16 +16,16 @@ function filter(e) {
     if (amount <= 25) {
         target.remove();
         if (!isMute) {
-            var audio = new Audio('sounds/Burp.ogg');
+            var audio = new Audio('sounds/Burp.opus');
             audio.play();
         }
         return;
     }
     if (!isMute) {
-        var audio = new Audio("sounds/Eat" + getRandomInt(1, 4) + ".ogg");
+        var audio = new Audio("sounds/Eat" + getRandomInt(1, 4) + ".opus");
         audio.play();
     }
-    target.src = name + (amount - 25) + ".png";
+    target.src = name + (amount - 25) + ".gif";
 }
 
 document.onmousedown = filter;
@@ -43,7 +43,7 @@ function getRandomInt(min, max) {
 function spawnFood() {
     const newFood = document.createElement("img");
     const randFood = foods[getRandomInt(0, foods.length)];
-    newFood.src = randFood + "_100.png";
+    newFood.src = "imgs/" + randFood + "_100.gif";
     newFood.classList.add("eatable");
 
     // 155 because the diagonal makes the 128 actually longer and push off the screen making scroll bars
@@ -68,10 +68,10 @@ if (localStorage.getItem("isCrunchMute") === null) {
 function toggleSound() {
     if (isMute) {
         isMute = false;
-        muteImg.src = "sound.png";
+        muteImg.src = "sounds/sound.gif";
     } else {
         isMute = true;
-        muteImg.src = "mute.png";
+        muteImg.src = "sounds/mute.gif";
     }
     localStorage.isCrunchMute = isMute;
 }
@@ -80,6 +80,6 @@ initToggleSounds();
 function initToggleSounds() {
     if (localStorage.getItem("isCrunchMute") === "true") {
         isMute = true;
-        muteImg.src = "mute.png";
+        muteImg.src = "mute.gif";
     }
 }
