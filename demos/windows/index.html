@@ -8,26 +8,34 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
-<body>
+<body onload="const startup = new Audio('startup.opus'); if (!isMute) {startup.play();};">
     <div id="menu">
         <ul>
-            <li>
+            <li title="About">
+                <button onclick="makeWindow('about.html','about','About','help.gif');">
+                    <img src="help.gif">About</button>
+            </li>
+            <li title="Cocoa Milka">
                 <button onclick="makeWindow('https://www.cocoamilka.art/','cocoamilka','Cocoa Milka','https://www.cocoamilka.art/images/icons/cocoaPlush.png');">
                     <img src="https://www.cocoamilka.art/images/icons/cocoaPlush.png">Cocoa Milka</button>
             </li>
-            <li>
+            <li title="Cat Boop">
                 <button onclick="makeWindow('https://cat-boop.com/','cat-boop','Cat Boop','https://cat-boop.com/icns/favicon.gif');">
                     <img src="https://cat-boop.com/icns/favicon.gif">Cat Boop</button>
             </li>
-            <li>
+            <li title="Minesweeper">
                 <button onclick="makeWindow('https://minesweeper.one/','minesweeper','Minesweeper','https://minesweeper.one/images/favicon.ico');">
                     <img src="https://minesweeper.one/images/favicon.ico">Minesweeper</button>
             </li>
-            <li>
+            <li title="Paint">
                 <button onclick="makeWindow('https://jspaint.app/','paint','Paint','https://jspaint.app/favicon.ico');">
                     <img src="https://jspaint.app/favicon.ico">Paint</button>
             </li>
         </ul>
+        <span>
+            <button id="power" onclick="const shutdown = new Audio('shutdown.opus'); if (!isMute) {shutdown.play();}; setTimeout( function() {window.close();history.back();}, 2000);"><img src="on-off.svg">Turn Off Computer</button>
+        </span>
+        
     </div>
     <div id="taskbar">
         <span id="start" class="start">
@@ -36,10 +44,15 @@
         <span id="windows">
         </span>
         <span id="clock">
+            <button id="mute" onclick="toggleSound()"><img src="sound.gif" id="muteImg"></button>
+            <p></p>
         </span>
     </div>
 
     <script src="draggable.js"></script>
+    <script>
+        makeWindow('about.html','about','About','help.gif');
+    </script>
 </body>
 
 </html> 

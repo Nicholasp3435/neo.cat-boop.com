@@ -130,18 +130,21 @@ function makeWindow(src, id, name, icon) {
 
   xBtn.classList.add("x");
   xBtn.innerHTML = "X";
+  xBtn.title = "Close";
   xBtn.onclick = function() {window.remove(); windowBtn.remove();};
   window.appendChild(xBtn);
 
   const maxBtn = document.createElement('button');
   maxBtn.classList.add("max");
   maxBtn.innerHTML = "□";
+  maxBtn.title = "Open in new tab";
   maxBtn.onclick = function() {openInNewTab(src);};
   window.appendChild(maxBtn);
 
   const minBtn = document.createElement('button');
   minBtn.classList.add("min");
   minBtn.innerHTML = "_";
+  minBtn.title = "Minimize";
   minBtn.onclick = function() {
     window.style.visibility = "hidden";
   };
@@ -157,6 +160,7 @@ function makeWindow(src, id, name, icon) {
   // declared windowBtn earlier
   windowBtn.innerHTML = name;
   windowBtn.prepend(iconImg.cloneNode());
+  windowBtn.title = name;
   windowBtn.onclick  = function() {
     if (window.style.visibility === "hidden") {
       window.style.visibility = "unset";
@@ -173,12 +177,36 @@ function makeWindow(src, id, name, icon) {
 }
 
 function updateDateTime() {
-  // create a new `Date` object
   const now = new Date();
-  
-  // update the `textContent` property of the `span` element with the `id` of `datetime`
-  document.getElementById("clock").innerHTML = now.getHours() + ":" + now.getMinutes().toString().padStart(2, '0');
+  document.getElementById("clock").childNodes[3].innerHTML = now.getHours() + ":" + now.getMinutes().toString().padStart(2, '0');
 }
 
 updateDateTime();
 setInterval(updateDateTime, 1000);
+
+/** mute js */
+
+const muteImg = document.getElementById("muteImg");
+var isMute = false;
+if (localStorage.getItem("isCrunchMute") === null) {
+    localStorage.isCrunchMute = false;
+}
+
+function toggleSound() {
+    if (isMute) {
+        isMute = false;
+        muteImg.src = "sound.gif";
+    } else {
+        isMute = true;
+        muteImg.src = "mute.gif";
+    }
+    localStorage.isCrunchMute = isMute;
+}
+
+initToggleSounds();
+function initToggleSounds() {
+    if (localStorage.getItem("isCrunchMute") === "true") {
+        isMute = true;
+        muteImg.src = "mute.gif";
+    }
+}
