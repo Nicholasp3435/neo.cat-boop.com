@@ -89,25 +89,75 @@ div#taskbar {
     bottom: 0%;
     width: 100%;
     left: 0;
-    background-color: #0055e7;
+    background-image: linear-gradient(#418ae3 20%, #0055e7 30%);
     z-index: 9999;
+    height: 1.5rem;
 }
 
 span#start {
     width: 7rem;
-    background-color: #46aa46;
+    background-image: linear-gradient(#7cb67c 20%, #46aa46 30%);
     text-align: center;
     color: white;
+    text-shadow: 2px 2px black;
     font-weight: bolder;
 }
-
 
 span#windows button {
     background: #0055e7;
     margin-left: 0.5rem;
     color: white;
+    font-size: 1rem;
 }
+
+span#windows button img {
+    height: 1rem;
+    margin-right: 0.25rem;
+}
+
 span#windows button:hover {
     background: #023da3;
+}
+
+span#clock {
+    width: 7rem;
+    background-image: linear-gradient(#74b7e4 20%, #0C90EB 30%);
+    text-align: center;
+    color: white;
+    right: 0%;
+    padding-top: 0.2rem; 
+    position:fixed;
+}
+
+div#menu {
+    box-shadow: inset 0 0 2rem 0.5rem #0055e7;
+    background: #5889df;
+    position: absolute;
+    visibility: hidden;
+    bottom: 1.5rem;
+    left: 0%;
+    z-index: 9999;
+}
+
+div#menu ul {
+    padding-left: 0;
+    background-color: white;
+}
+
+div#menu ul li {
+    list-style: none;
+}
+
+div#menu ul li button {
+    border-width: 0;
+    font-size: 2rem;
+    text-align: left;
+    width: 100%;
+    background-color: white;
+}
+
+div#menu ul li button img {
+    height: 2rem;
+    padding-right: 0.5rem;
 }
 

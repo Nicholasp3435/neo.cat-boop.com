@@ -9,41 +9,37 @@
 </head>
 
 <body>
+    <div id="menu">
+        <ul>
+            <li>
+                <button onclick="makeWindow('https://www.cocoamilka.art/','cocoamilka','Cocoa Milka','https://www.cocoamilka.art/images/icons/cocoaPlush.png');">
+                    <img src="https://www.cocoamilka.art/images/icons/cocoaPlush.png">Cocoa Milka</button>
+            </li>
+            <li>
+                <button onclick="makeWindow('https://cat-boop.com/','cat-boop','Cat Boop','https://cat-boop.com/icns/favicon.gif');">
+                    <img src="https://cat-boop.com/icns/favicon.gif">Cat Boop</button>
+            </li>
+            <li>
+                <button onclick="makeWindow('https://minesweeper.one/','minesweeper','Minesweeper','https://minesweeper.one/images/favicon.ico');">
+                    <img src="https://minesweeper.one/images/favicon.ico">Minesweeper</button>
+            </li>
+            <li>
+                <button onclick="makeWindow('https://jspaint.app/','paint','Paint','https://jspaint.app/favicon.ico');">
+                    <img src="https://jspaint.app/favicon.ico">Paint</button>
+            </li>
+        </ul>
+    </div>
     <div id="taskbar">
-        <span id="start">
+        <span id="start" class="start">
             start
         </span>
         <span id="windows">
         </span>
+        <span id="clock">
+        </span>
     </div>
 
     <script src="draggable.js"></script>
-    <script>
-        makeWindow(
-            "https://www.cocoamilka.art/",
-            "cocoamilka",
-            "Cocoa Milka",
-            "https://www.cocoamilka.art/images/icons/cocoaPlush.png"
-        );
-        makeWindow(
-            "..",
-            "self",
-            "Recursive?",
-            ""
-        );
-        makeWindow(
-            "https://www.example.com/",
-            "example",
-            "Example",
-            ""
-        );
-        makeWindow(
-            "https://www.cat-boop.com/",
-            "cat-boop",
-            "Cat Boop :3",
-            ""
-        );
-    </script>
 </body>
 
 </html> 

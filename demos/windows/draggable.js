@@ -1,8 +1,15 @@
+// https://stackoverflow.com/a/18234150
+const hasParent = (element, ...parents) => parents.some((parent) => parent.contains(element))
+const menu = document.getElementById("menu");
+
+
 // Code by mmaismma on Stack Overflow
 // https://stackoverflow.com/a/63425707
 
 const d = document.getElementsByClassName("draggable");
 var highestZ = 1;
+
+
 
 for (let i = 0; i < d.length; i++) {
   d[i].style.position = "relative";
@@ -10,6 +17,19 @@ for (let i = 0; i < d.length; i++) {
 
 function filter(e) {
   let target = e.target;
+
+
+  if (target.classList.contains("start")) {
+    menu.style.visibility = "unset";
+    return;
+  }
+
+  if (hasParent(target, menu)) {
+    menu.style.visibility = "unset";
+  } else {
+    menu.style.visibility = "hidden";
+  }
+
 
   if (!target.classList.contains("draggable")) {
     return;
@@ -59,10 +79,7 @@ function filter(e) {
   }
 
   function endDrag() {
-    target.moving = false;
-    
-
-    
+    target.moving = false;    
   }
   target.onmouseup = endDrag;
   //NOTICE THIS 👇
@@ -81,7 +98,15 @@ function openInNewTab(url) {
 
 const windowBar = document.getElementById("windows");
 
+
 function makeWindow(src, id, name, icon) {
+
+  if(document.body.contains(document.getElementById(id))) {
+    document.getElementById(id).style.zIndex = highestZ;
+    highestZ++;
+    return;
+  }
+
   const window = document.createElement('div');
   window.classList.add("draggable");
   window.id = id;
@@ -129,8 +154,9 @@ function makeWindow(src, id, name, icon) {
 
   document.body.appendChild(window);
 
-  // declared earlier
+  // declared windowBtn earlier
   windowBtn.innerHTML = name;
+  windowBtn.prepend(iconImg.cloneNode());
   windowBtn.onclick  = function() {
     if (window.style.visibility === "hidden") {
       window.style.visibility = "unset";
@@ -143,4 +169,16 @@ function makeWindow(src, id, name, icon) {
 
   windowBar.appendChild(windowBtn);
 
+  menu.style.visibility = "hidden";
 }
+
+function updateDateTime() {
+  // create a new `Date` object
+  const now = new Date();
+  
+  // update the `textContent` property of the `span` element with the `id` of `datetime`
+  document.getElementById("clock").innerHTML = now.getHours() + ":" + now.getMinutes().toString().padStart(2, '0');
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
