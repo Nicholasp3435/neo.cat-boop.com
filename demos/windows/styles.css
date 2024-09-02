@@ -164,6 +164,10 @@ div#menu ul li button {
     background-color: white;
 }
 
+div#menu ul li button:hover {
+    background-color: #bbbbbb;
+}
+
 div#menu ul li button img {
     height: 2rem;
     padding-right: 0.5rem;
@@ -189,6 +193,10 @@ div#menu button#power {
     background-color: #00000000;
     color: white;
     margin: 0.5rem;
+}
+
+div#menu button#power:hover {
+    background-color: #11111130;
 }
 
 button#mute {
