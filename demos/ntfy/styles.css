@@ -1,0 +1,52 @@
+
+html {
+    background-image: url("../../images/stars.gif");
+    image-rendering: pixelated;
+}
+h4 {
+    color: white;
+}
+.drawing {
+    background-color: white;
+    position: absolute;
+    height: 20rem;
+    width: 35rem;
+}
+.drawing canvas {
+    border:2px solid;
+    position: absolute;
+    height: 15rem;
+    width: 30rem;
+    left: 1rem;
+}
+
+.drawing button {
+    right: 0.5rem;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+}
+
+.drawing input {
+    right: 0.5rem;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+}
+
+.drawing input#strokeColor {
+    top: 4rem;
+    background-image: conic-gradient(in Oklab, red, yellow, green, cyan, blue, magenta, red);
+}
+
+.drawing input#thicc {
+    top: 8rem;
+    height: 1.5rem;
+    width: 2.5rem;
+}
+
+.drawing button#undo {
+    top: 11rem;
+    font-size: 1.5rem;
+    background-color: rgb(221, 221, 221);
+}

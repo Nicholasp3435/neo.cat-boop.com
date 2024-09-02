@@ -4,44 +4,78 @@
     <meta name="title" content="Notificationss Demo :3">
     <meta name="description" content="Silly notification demo :3">
     <meta content="#af6cd6" name="theme-color">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Notifications Demo</title>
-    <style>
-        html {
-            background-image: url("../../images/stars.gif");
-            image-rendering: pixelated;
-        }
-        h4 {
-            color: white;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- from https://lilysthings.org/ -->
+
+    
+    <!-- modified from https://lilysthings.org/ -->
     <div class="ntfy-box">
         <h4>send a notification directly to my phone; please be funny.</h4>
         <textarea id="ntfy-input" placeholder="whats up"></textarea>
         <button onclick="sendNotification()" style="margin-left:10px;">Send</button>
     </div>
+    <div class="drawing">
+        <p>Draw something too :3</p>
+        <canvas id="canvas"></canvas>
+        <button id="undo" onclick="undo()">↺</button>
+        <input type="color" id="strokeColor" name="strokeColor" value="#8c6ec9"/>
+        <input type="number" id="thicc" min="1" max="50" value="5">
+    </div>
+    <script src="draw.js"></script>
+
     <script>
+        async function send(message, canvas) {
+            let r = new XMLHttpRequest()
+            r.open("POST", "https://api.imgbb.com/1/upload?expiration=604800&key=28a982c96954a29ed6abe08f8e375e17", true);
+
+            // Set up what happens when the request successfully completes
+            r.onload = function() {
+                if (r.status === 200) {
+                    // Parse the response
+                    let response = JSON.parse(r.responseText);
+                    console.log('Image uploaded successfully:', response);
+                    sendToNtfy(message, response.data.url);
+                    ntfyInput.value = "";
+                    ntfyInput.placeholder = "sent :3";
+                } else {
+                    console.error('Error uploading image:', r.statusText);
+                }
+            };
+
+            // Set up what happens in case of an error
+            r.onerror = function() {
+                console.error('Request failed');
+            };
+
+            // Create a FormData object to hold the image
+            let formData = new FormData();
+            base64Image = document.getElementById("canvas").toDataURL();
+            formData.append('image', base64Image.split(',')[1]);
+
+            // Send the request with the form data
+            r.send(formData);
+        }
+
+        // send notification
+        const ntfyInput = document.getElementById("ntfy-input");
+        function sendNotification() {
+            if (ntfyInput.value.length <= 0) return;
+            send(ntfyInput.value);
+        }
+
         // both
-        function send(message) {
+        function sendToNtfy(message, image) {
             let r = new XMLHttpRequest()
             r.open("POST", "https://ntfy.sh/nic3435", true);
             r.setRequestHeader("Content-Type", "text/plain");
+            r.setRequestHeader("Attach", image)
             r.send(message);
-          }
-
-          // send notification
-          let ntfyInput = document.getElementById("ntfy-input");
-          function sendNotification() {
-            if (ntfyInput.value.length <= 0) return;
-            send(ntfyInput.value);
-            ntfyInput.value = "";
-            ntfyInput.placeholder = "sent :3";
-          }
-
+        }
     </script>
+    
 </body>
 
 </html> 
