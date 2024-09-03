@@ -20,6 +20,7 @@ div#sticker-sheet {
     height: 75%;
     width: 15%;
     position: fixed;
+    right: 1rem;
 }
 
 div#sticker-sheet h2 {

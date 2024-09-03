@@ -82,7 +82,7 @@ function filter(e) {
     if (!target.classList.contains("stuck")) {
       stuck.appendChild(target);
       target.classList.add("stuck");
-      target.style.transform = "translateY(" + window.scrollY + "px)";
+      target.style.transform = "translateY(" + window.scrollY + "px) translateX("+ sheet.getBoundingClientRect().left + "px)";
     }
   }
   target.onmouseup = endDrag;
