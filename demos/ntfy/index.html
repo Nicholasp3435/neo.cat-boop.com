@@ -12,17 +12,18 @@
 
     
     <!-- modified from https://lilysthings.org/ -->
+    
     <div class="ntfy-box">
         <h4>send a notification directly to my phone; please be funny.</h4>
         <textarea id="ntfy-input" placeholder="whats up"></textarea>
         <button onclick="sendNotification()" style="margin-left:10px;">Send</button>
     </div>
     <div class="drawing">
-        <p>Draw something too :3</p>
         <canvas id="canvas"></canvas>
         <button id="undo" onclick="undo()">↺</button>
         <input type="color" id="strokeColor" name="strokeColor" value="#8c6ec9"/>
         <input type="number" id="thicc" min="1" max="50" value="5">
+        <p>Draw something too :3</p>
     </div>
     <script src="draw.js"></script>
 

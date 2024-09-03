@@ -3,14 +3,30 @@ html {
     background-image: url("../../images/stars.gif");
     image-rendering: pixelated;
 }
-h4 {
-    color: white;
+
+div.ntfy-box {
+    background-color: white;
+    width: 34rem;
+    padding-left: 1rem;
 }
+
+.ntfy-box button {
+    background-color: rgb(221, 221, 221);
+    font-size: 1rem;
+    height: 2rem;
+    transform: translateY(-.5rem);
+}
+
+#ntfy-input {
+    width: 25rem;
+}
+
 .drawing {
     background-color: white;
     position: absolute;
-    height: 20rem;
+    height: 17rem;
     width: 35rem;
+
 }
 .drawing canvas {
     border:2px solid;
@@ -50,4 +66,11 @@ h4 {
     top: 11rem;
     font-size: 1.5rem;
     background-color: rgb(221, 221, 221);
+}
+
+.drawing p {
+    position: absolute;
+    left: 1rem;
+    bottom: 0.2rem;
+    margin-bottom: 0;
 }
