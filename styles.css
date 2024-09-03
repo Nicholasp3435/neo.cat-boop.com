@@ -1,0 +1,40 @@
+.draggable {
+    width: fit-content;
+    height: fit-content;
+    position: absolute !important;
+    z-index: 2;
+}
+
+img {
+    pointer-events: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none; 
+}
+
+div#sticker-sheet {
+    background-color: #333;
+    border-style: ridge;
+    border-color: #828;
+    border-width: 0.333rem;
+    height: 75%;
+    width: 15%;
+    position: fixed;
+}
+
+div#sticker-sheet h2 {
+    margin-top: 0;
+}
+
+
+div#stuck-stickers div {
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+
+#venus {top: 14%; left: 55%; }
+#mars {top: 16%; left: 10%; }
+#saturn {top: 6%; left: 2%; }
+#jupiter {top: 1%; left: 60%; }

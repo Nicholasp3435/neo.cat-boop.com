@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'PMD';
+    src: url('/resources/fonts/wondermail.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    background-image: url('/resources/images/stars.gif');
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    font-smooth: never;
+    image-rendering: pixelated;
+    font-family: 'PMD', sans-serif;
+    color: white;
+    font-size: 32px;
+    text-rendering: geometricPrecision;
+    text-shadow: black 2px 2px;
+
+    overflow-x: hidden;
+}
+
+header {
+    width: 60%;
+    background-color: #333;
+    border-style: ridge;
+    border-color: #828;
+    border-width: 0.333rem;
+    margin: auto;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 64px;
+    text-shadow: black 4px 4px;
+}
+
+header span {
+    float: right;
+    list-style: none;
+    background-color: #333;
+    border-style: ridge;
+    border-color: #828;
+    border-width: 0.333rem;
+    border-top: 0;
+    transform: translateX(0.333rem);
+    
+}
+
+header span a {
+    color: #f5f;
+    padding-left: 0.333rem;
+    padding-right: 0.333rem;
+    text-decoration: none;
+}
+
+header span a:visited {
+    color: #f5f;
+}
+
+header span a:hover {
+    background-color: #222;
+}
+
+
