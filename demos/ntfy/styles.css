@@ -36,6 +36,7 @@ h4 {
 
 .drawing input#strokeColor {
     top: 4rem;
+    background-image: linear-gradient(red, yellow, green, cyan, blue, magenta);
     background-image: conic-gradient(in Oklab, red, yellow, green, cyan, blue, magenta, red);
 }
 
