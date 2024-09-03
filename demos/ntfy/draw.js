@@ -108,3 +108,7 @@ function undo() {
         ctx.putImageData(previousState, 0, 0);
     }
 }
+
+function clearDraw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}

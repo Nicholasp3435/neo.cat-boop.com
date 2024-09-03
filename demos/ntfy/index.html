@@ -41,6 +41,7 @@
                     sendToNtfy(message, response.data.url);
                     ntfyInput.value = "";
                     ntfyInput.placeholder = "sent :3";
+                    clearDraw();
                 } else {
                     console.error('Error uploading image:', r.statusText);
                 }
