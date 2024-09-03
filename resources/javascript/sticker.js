@@ -52,7 +52,7 @@ function filter(e) {
     const currentScrollY = window.scrollY
     const deltaY = currentScrollY - scrollY;
 
-    target.style.filter = "drop-shadow(1rem 1rem 4px #111)";
+    target.style.filter = "drop-shadow(0.5rem 0.5rem 4px #000)";
 
     //NOTICE THIS 👇
     if (event.clientX) {
