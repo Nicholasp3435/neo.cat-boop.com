@@ -4,6 +4,7 @@
 
 const drag = document.getElementsByClassName("draggable");
 const sheet = document.getElementById("sticker-sheet");
+const sheetBtn = document.getElementById("sitcker-view");
 const stuck = document.getElementById("stuck-stickers");
 
 for (let i = 0; i < drag.length; i++) {
@@ -94,3 +95,15 @@ document.onmousedown = filter;
 //NOTICE THIS 👇
 document.ontouchstart = filter;
 //NOTICE THIS 👆
+
+function toggleStickers() {
+  if (sheet.style.visibility === "visible") {
+    sheet.style.visibility = "hidden";
+    sheetBtn.style.right = "0px";
+    sheetBtn.innerHTML = "<";
+  } else {
+    sheet.style.visibility = "visible";
+    sheetBtn.style.right = "9.333rem";
+    sheetBtn.innerHTML = ">";
+  }
+}

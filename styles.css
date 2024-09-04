@@ -13,14 +13,34 @@ img {
 }
 
 div#sticker-sheet {
+    position: fixed;
+    right:0;
+    z-index: 9;
+    visibility: hidden;
+}
+
+button#sitcker-view {
+    position: fixed;
+    right:0;
+    z-index: 9;
     background-color: #333;
     border-style: ridge;
     border-color: #828;
     border-width: 0.333rem;
-    height: 75%;
-    width: 15%;
-    position: fixed;
+    color: white;
+    font-weight: bolder;
+}
+
+div#sillies {
+    left: 1rem;
+    position: absolute;
+    height: fit-content;
+}
+
+div#sillies2 {
     right: 1rem;
+    position: absolute;
+    height: fit-content;
 }
 
 div#sticker-sheet h2 {
@@ -37,7 +57,6 @@ div#stuck-stickers div {
     height: min-content;
     width: min-content;
 }
-
 
 #venus {top: 14%; left: 55%; }
 #mars {top: 16%; left: 10%; }
