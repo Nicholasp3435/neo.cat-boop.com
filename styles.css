@@ -17,6 +17,7 @@ div#sticker-sheet {
     right:0;
     z-index: 9;
     visibility: hidden;
+    top: 2rem;
 }
 
 button#sitcker-view {
@@ -32,13 +33,13 @@ button#sitcker-view {
 }
 
 div#sillies {
-    left: 1rem;
+    left: 1.5rem;
     position: absolute;
     height: fit-content;
 }
 
 div#sillies2 {
-    right: 1rem;
+    right: 1.5rem;
     position: absolute;
     height: fit-content;
 }
