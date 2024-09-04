@@ -17,7 +17,6 @@ div#sticker-sheet {
     right:0;
     z-index: 9;
     visibility: hidden;
-    top: 2rem;
 }
 
 button#sitcker-view {
@@ -28,8 +27,15 @@ button#sitcker-view {
     border-style: ridge;
     border-color: #828;
     border-width: 0.333rem;
+    border-right: 0;
+    font-family: 'PMD', sans-serif;
+    font-size: 32px;
+    text-shadow: black 2px 2px;
+
     color: white;
     font-weight: bolder;
+    width: 1.333rem;
+
 }
 
 div#sillies {

@@ -103,7 +103,7 @@ function toggleStickers() {
     sheetBtn.innerHTML = "<";
   } else {
     sheet.style.visibility = "visible";
-    sheetBtn.style.right = "9.333rem";
+    sheetBtn.style.right = "8.333rem";
     sheetBtn.innerHTML = ">";
   }
 }
