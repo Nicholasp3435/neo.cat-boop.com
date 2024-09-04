@@ -183,30 +183,3 @@ function updateDateTime() {
 
 updateDateTime();
 setInterval(updateDateTime, 1000);
-
-/** mute js */
-
-const muteImg = document.getElementById("muteImg");
-var isMute = false;
-if (localStorage.getItem("isCrunchMute") === null) {
-    localStorage.isCrunchMute = false;
-}
-
-function toggleSound() {
-    if (isMute) {
-        isMute = false;
-        muteImg.src = "sound.gif";
-    } else {
-        isMute = true;
-        muteImg.src = "mute.gif";
-    }
-    localStorage.isCrunchMute = isMute;
-}
-
-initToggleSounds();
-function initToggleSounds() {
-    if (localStorage.getItem("isCrunchMute") === "true") {
-        isMute = true;
-        muteImg.src = "mute.gif";
-    }
-}

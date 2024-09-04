@@ -1,5 +1,5 @@
 html {
-    background-image: url("../../images/stars.gif");
+    background-image: url("/resources/images/stars.gif");
     image-rendering: pixelated;
     overflow: hidden;
 }
