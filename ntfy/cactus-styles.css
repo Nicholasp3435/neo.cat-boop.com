@@ -1,0 +1,75 @@
+div.cactus-comment-avatar {
+    display: none;
+}
+
+button.cactus-login-button {
+    display: none;
+}
+
+textarea.cactus-editor-textarea {
+    background-color: #222;
+    text-shadow: black 2px 2px;
+    border-radius: 0;
+    height: 4rem;
+    margin: 1rem;
+    width: 90%;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+}
+
+textarea.cactus-editor-textarea::placeholder {
+    text-align: unset;
+    line-height: unset;
+}
+
+div.cactus-editor-name {
+    background-color: #222;
+    border-radius: 0;
+    margin-left: 1rem;
+}
+
+div.cactus-editor-name > span > input[type="text"] {
+    font-family: 'PMD', sans-serif;
+    text-shadow: black 2px 2px;
+    border-radius: 0;
+}
+
+div.cactus-editor-name > span > input[type="text"]::placeholder{
+    font-family: 'PMD', sans-serif;
+    text-shadow: black 2px 2px;
+    border-radius: 0;
+}
+
+div.cactus-editor-buttons {
+    margin-right: 1rem;
+}
+
+div.cactus-editor-name {
+    flex: unset;
+}
+
+button.cactus-button.cactus-send-button {
+    font-family: 'PMD', sans-serif;
+    text-shadow: black 2px 2px;
+    font-size: 32px;
+    border-radius: 0;
+}
+
+div.cactus-comments-list {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    overflow-y: scroll;
+    width: 90%;
+}
+
+div.cactus-comment {
+    border-bottom: dashed #111;
+}
+
+time.cactus-comment-time {
+    color: #999;
+}
+
+a.cactus-comment-displayname {
+    pointer-events: none;
+}

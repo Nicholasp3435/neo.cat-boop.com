@@ -39,13 +39,13 @@ button#sitcker-view {
 }
 
 div#sillies {
-    left: 1.5rem;
+    left: 2.5%;
     position: absolute;
     height: fit-content;
 }
 
 div#sillies2 {
-    right: 1.5rem;
+    right: 2.5%;
     position: absolute;
     height: fit-content;
 }
