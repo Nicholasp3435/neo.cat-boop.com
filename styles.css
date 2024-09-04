@@ -17,6 +17,7 @@ div#sticker-sheet {
     right:0;
     z-index: 9;
     visibility: hidden;
+    width: 8rem;
 }
 
 button#sitcker-view {
