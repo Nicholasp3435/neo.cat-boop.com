@@ -22,7 +22,7 @@ const MAX_UNDO_STATES = 30;
 // saves state of each stroke for undoing
 let undoStack = [];
 
-const stroke = document.getElementById("strokeColor");
+const stroke = document.getElementById("stroke-color");
 const thicc = document.getElementById("thicc");
 
 thicc.addEventListener("input", (event) => {

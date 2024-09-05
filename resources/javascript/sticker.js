@@ -13,8 +13,6 @@ for (let i = 0; i < drag.length; i++) {
 
 function filter(e) {
   let target = e.target;
-  
-  console.log(target);
 
   if (!target.classList.contains("draggable")) {
     return;

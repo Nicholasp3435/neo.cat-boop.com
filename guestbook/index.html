@@ -7,26 +7,31 @@
     <link rel="stylesheet" type="text/css" href="cactus-styles.css">
     <link rel="stylesheet" type="text/css" href="/resources/styles.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Contact</title>
+    <title>Guestbook</title>
 </head>
 
 <body onload='cactusInit()'>
 
     
     <!-- modified from https://lilysthings.org/ -->
-    <div id="ntfy-container">
-        <div class="ntfy-box">
-            <h4>send a notification directly to my phone; please be funny.</h4>
+    <div id="drawing">
+        <h4>send a notification directly to my phone; please be funny.</h4>
+        <div id="textarea-container">
             <textarea id="ntfy-input" placeholder="whats up"></textarea>
-            <button onclick="sendNotification()" style="margin-left:10px;">Send</button>
         </div>
-        <div class="drawing">
-            <canvas id="canvas"></canvas>
-            <button id="undo" onclick="undo()">↺</button>
-            <input type="color" id="strokeColor" name="strokeColor" value="#8c6ec9"/>
-            <input type="number" id="thicc" min="1" max="50" value="5">
-            <p>Draw something too :3</p>
+        <h4>draw something too?</h4>
+        <div id="drawing-container">
+            <div id="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div id="button-container">
+                <input type="number" id="thicc" min="1" max="50" value="5"><br>
+                <button id="undo" onclick="undo()"><span>↺</span></button><br>
+                <input type="color" id="stroke-color" name="strokeColor" value="#8c6ec9"/>
+            </div>
         </div>
+
+        <button onclick="sendNotification()" id="send-btn">Send!</button>
     </div>
     <script src="draw.js"></script>
 
