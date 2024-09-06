@@ -18,7 +18,7 @@ div#drawing {
     border-width: 0.333rem;
     width: 45%;
     position: absolute;
-    top: 1rem;
+    top: 3rem;
     left: 1rem;
     z-index: 1;
 }
@@ -120,7 +120,7 @@ div#drawing button#send-btn {
     border-width: 0.333rem;
     position: absolute;
     right: 1rem;
-    top: 1rem;
+    top: 3rem;
     bottom: 1rem;
     overflow-y: scroll;
     width: 45%;
