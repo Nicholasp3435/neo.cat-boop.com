@@ -12,6 +12,8 @@ window.addEventListener('load', () => {
 }); 
     
 const canvas = document.querySelector('#canvas'); 
+canvas.width = 600;
+canvas.height = 300;
 const ctx = canvas.getContext('2d'); 
 let coord = {x: 0, y: 0};  
 let paint = false; 

@@ -55,6 +55,7 @@ div#drawing canvas {
     border: outset #aa6b4c 4px;
     background-color: #fff;
     width: 80%;
+    image-rendering: optimizeQuality;
 }
 
 div#drawing div#button-container {
