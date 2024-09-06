@@ -2,12 +2,12 @@
 
 window.addEventListener('load', () => { 
     canvas.addEventListener('mousedown', startPainting); 
-    canvas.addEventListener('mouseup', stopPainting); 
+    document.addEventListener('mouseup', stopPainting); 
     canvas.addEventListener('mousemove', sketch); 
 
     // Touch events for touch screens
     canvas.addEventListener('touchstart', startTouchPainting);
-    canvas.addEventListener('touchend', stopPainting);
+    document.addEventListener('touchend', stopPainting);
     canvas.addEventListener('touchmove', touchSketch);
 }); 
     
