@@ -28,13 +28,22 @@
         </div>
         <h4>draw something too?</h4>
         <div id="drawing-container">
-            <div id="canvas-container">
-                <canvas id="canvas"></canvas>
+            <div id="previous-colors" oncontextmenu="return false;">
+                <input type="color" name="strokeColor" value="#8c6ec9" class="toggled"/>
+                <input type="color" name="strokeColor" value="#e01b24"/>
+                <input type="color" name="strokeColor" value="#2ec27e"/>
+                <input type="color" name="strokeColor" value="#f6d32d"/>
+                <input type="color" name="strokeColor" value="#1c71d8"/>
             </div>
             <div id="button-container">
-                <input type="number" id="thicc" min="1" max="50" value="5"><br>
-                <button id="undo" onclick="undo()"><span>↺</span></button><br>
-                <input type="color" id="stroke-color" name="strokeColor" value="#8c6ec9"/>
+                <button id="undo" onclick="undo()"><span>↺</span></button>
+                <button id="redo" onclick="redo()"><span style="transform: scaleX(-1);">↺</span></button>
+                <input type="number" id="thicc" min="1" max="50" value="5">
+                <button id="eraser" onclick="toggleErase()"><span><span style="color: rgb(235, 116, 171); width: 1rem;transform: skew(-15deg, -15deg);font-size: 1rem;">▉</span></span></button>
+                <button id="eyedropper" onclick="toggleEyedropper()"><span><img src="eyedrop.png"></span></button>
+            </div>
+            <div id="canvas-container">
+                <canvas id="canvas"></canvas>
             </div>
         </div>
 

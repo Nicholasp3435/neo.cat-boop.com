@@ -47,7 +47,6 @@ div#drawing div#drawing-container {
 }
 
 div#drawing div#canvas-container {
-    padding-top: 0.5rem;
     padding-left: .333rem;
 }
 
@@ -58,21 +57,46 @@ div#drawing canvas {
     image-rendering: optimizeQuality;
 }
 
-div#drawing div#button-container {
+div#drawing div#previous-colors {
     position: absolute;
     text-align: center;
     top: 0;
     right: 0;
     padding: 0.333rem;
+    padding-top: 2.5rem;
     width: 15%;
+    height: 100%;
+}
+
+div#drawing div#previous-colors input {
+    width: 70%;
+    height:15%;
+    background-color: #fff;
+    padding: 0.333rem;
+}
+
+div#drawing div#previous-colors input.toggled {
+    background-image: linear-gradient(red, yellow, green, cyan, blue, magenta);
+    background-image: conic-gradient(in Oklab, red, yellow, green, cyan, blue, magenta, red);
+}
+
+div#drawing div#button-container {
+    padding: 0.333rem;
+    width: 100%;
 }
 
 div#drawing div#button-container button {
-    width: 75%;
     height: 2rem;
+    font-family: 'PMD', sans-serif;
     background-color: #bbc;
     font-size: 1.5rem;
-    margin-top: 33%;
+    display: inline;
+    vertical-align: middle;
+}
+
+div#drawing div#button-container button.toggled {
+    background-color: #888;
+    border: inset;
 }
 
 div#drawing div#button-container button span {
@@ -84,9 +108,9 @@ div#drawing div#button-container button span {
 }
 
 div#drawing div#button-container input {
-    width: 75%;
+    display: inline;
+    vertical-align: middle;
     height: 2rem;
-    margin-top: 33%;
 }
 
 
@@ -103,6 +127,16 @@ div#drawing div#button-container input#stroke-color {
     background-image: conic-gradient(in Oklab, red, yellow, green, cyan, blue, magenta, red);
 }
 
+div#drawing span#previous-colors {
+    margin-left: .333rem;;
+}
+
+div#drawing span#previous-colors button {
+    background-color: #fff;
+    width: 12.5%;
+    height: 1.333rem;
+}
+
 div#drawing button#send-btn {
     background-color: #555;
     font-family: 'PMD', sans-serif;
@@ -111,6 +145,13 @@ div#drawing button#send-btn {
     font-size: 48px;
     text-shadow: black 2px 2px;
     margin: .333rem;
+}
+
+div#drawing button#loadbtn {
+    background-color: #f80;
+    margin: 0.333rem;
+    font-size: 48px;
+    font-family: 'PMD', sans-serif;
 }
 
 #guestbook-container {
