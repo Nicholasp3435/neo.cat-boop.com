@@ -19,8 +19,6 @@ canvas.width = 600;
 canvas.height = 300;
 const ctx = canvas.getContext('2d'); 
 
-ctx.fillStyle = '#fff';
-ctx.fillRect(0, 0, canvas.width, canvas.height)
 
 
 let coord = {x: 0, y: 0};  
@@ -247,4 +245,11 @@ function askIfLoad() {
         loadbtn.onclick = function() {loadFromLocal();loadbtn.remove();};
         document.getElementById("drawing-container").appendChild(loadbtn);
     }
+}
+
+
+function clearDraw() {
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    saveState();    
 }
