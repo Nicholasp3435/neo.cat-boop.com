@@ -63,7 +63,7 @@ div#drawing div#previous-colors {
     top: 0;
     right: 0;
     padding: 0.333rem;
-    padding-top: 2.5rem;
+    margin-top: 2.5rem;
     width: 15%;
     height: 100%;
 }
@@ -127,9 +127,6 @@ div#drawing div#button-container input#stroke-color {
     background-image: conic-gradient(in Oklab, red, yellow, green, cyan, blue, magenta, red);
 }
 
-div#drawing span#previous-colors {
-    margin-left: .333rem;;
-}
 
 div#drawing span#previous-colors button {
     background-color: #fff;

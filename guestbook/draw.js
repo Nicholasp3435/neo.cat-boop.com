@@ -33,7 +33,8 @@ let undoPointer = 0;
 
 // saves state of each stroke for undoing
 let undoStack = [];
-saveState();
+
+clearDraw();
 
 const thicc = document.getElementById("thicc");
 const erase = document.getElementById("eraser");
@@ -88,13 +89,16 @@ function startPainting(event){
 } 
 
 function startTouchPainting(event) {
+    if (event.target.nodeName !== "CANVAS") return;
     event.preventDefault();
     if (eyedropping) {
-        getPosition(event); 
+        getTouchPosition(event); 
         eyedropPixel();
         return;
     }
-    document.getElementById("loadbtn").remove();
+    if (document.getElementById("loadbtn")) {
+        document.getElementById("loadbtn").remove();
+    } 
     paint = true;
     getTouchPosition(event);
 }
@@ -130,12 +134,17 @@ function sketch(event){
 
 function touchSketch(event) {
     if (!paint) return;
+    if (undoPointer < undoStack.length) {
+        for (let i = undoPointer; i < undoStack.length; i++) {
+            undoStack.pop();
+        }
+    }
     event.preventDefault(); 
     ctx.beginPath();
     ctx.lineWidth = thicc.value;
     ctx.lineCap = 'round';
     if (!erasing) {
-        ctx.strokeStyle = stroke.value; 
+        ctx.strokeStyle = previousColorsElms[selectedColorIndex].value; 
     } else {
         ctx.strokeStyle = '#fff'; 
     }
@@ -162,7 +171,6 @@ function undo() {
         let previousState = undoStack[undoPointer - 1];
         ctx.putImageData(previousState, 0, 0);
     }
-    
     console.log(undoStack, undoPointer)
 }
 
@@ -213,6 +221,9 @@ function eyedropPixel() {
 
 function selectColor(event) {
     const target = event.target;
+    if (target.nodeName !== 'INPUT') {
+        return;
+    }
     for (let i = 0; i < previousColorsElms.length; i++) {
         previousColorsElms[i].classList.remove("toggled");
     }
@@ -249,7 +260,7 @@ function askIfLoad() {
 
 
 function clearDraw() {
-    ctx.fillStyle = '#fff';
+    ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     saveState();    
 }
