@@ -70,3 +70,7 @@ div#stuck-stickers div {
 #mars {top: 16%; left: 10%; }
 #saturn {top: 6%; left: 2%; }
 #jupiter {top: 1%; left: 60%; }
+
+img.button {
+    margin: 0.333rem;
+}

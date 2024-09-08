@@ -76,6 +76,7 @@ div.sidebar {
     border-width: 0.333rem;
     height: 75%;
     width: 13.33%;
+    text-align: center;
 }
 
 section.main {
