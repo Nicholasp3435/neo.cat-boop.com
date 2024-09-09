@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'PMD';
-    src: url('/resources/fonts/wondermail.ttf') format('truetype');
+    src: url('/resources/fonts/wondermail1.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -31,7 +31,7 @@ header {
 header h1 {
     text-align: center;
     font-size: 64px;
-    text-shadow: black 4px 4px;
+    text-shadow: black 5px 5px;
 }
 
 header h2 {
@@ -102,6 +102,25 @@ button.home {
     text-shadow: black 2px 2px;
     color: white;
     font-weight: bolder;
+}
+
+section.main p {
+    margin: 1rem;
+}
+
+section.main h1 {
+    margin: 0.5rem;
+    margin-bottom: 0;
+    font-size: 48px;
+    text-shadow: black 4px 4px;
+}
+
+section.main a {
+    color: #f5f;
+}
+
+section.main a:visited {
+    color: #f5f;
 }
 
 button.home:focus {
