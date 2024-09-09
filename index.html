@@ -13,6 +13,7 @@
     <script>NekoType="orange"</script>
     <h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
 
+    <button id="mute" onclick="toggleSound()"><img src="resources/images/sound.gif" id="muteImg"></button>
     <header>
 
         <h1>nic's epic site :3</h1>
@@ -23,6 +24,8 @@
 
     <main>
 
+
+        <script async src="resources/javascript/sticker.js"></script>
         <div class="sidebar" id="sticker-sheet">
             <h2>Stickers!</h2>
             <div class="draggable" id="saturn" title="Saturn">
@@ -41,6 +44,7 @@
 
         <button id="sitcker-view" onclick="toggleStickers()"><</button>
 
+
         <div class="sidebar" id="sillies">    
             <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Under_construction_graphic.gif" style="width: 80%;">
             <img class="button" alt="powered by linear algebra" title="powered by linear algebra" src="resources/images/buttons/8831.gif">
@@ -56,7 +60,13 @@
         </div>
 
         <div class="sidebar" id="sillies2">
-            <p>stuff idk</p>
+            <p>Click this box;<br>I <i>dare</i> you</p>
+
+            <div class="boxDiv">
+                <img src="resources/images/box_back.gif" class="box_back">
+                <img class="box_inside">
+                <img src="resources/images/box_front.gif" class="box_front">
+            </div>
         </div>
 
 
@@ -74,6 +84,7 @@
 
     </main>
 
-    <script src="resources/javascript/sticker.js"></script>
+    <script defer src="resources/javascript/box.js"></script>
+    <script src="resources/javascript/mute.js"></script>
 </body>
 </html> 

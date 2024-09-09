@@ -126,3 +126,19 @@ section.main a:visited {
 button.home:focus {
     border-style: ridge inset;
 }
+
+button#mute {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9;
+    height: 1rem;
+    width: 1rem;
+    /** makes the button turn square :3 */
+    background-color: white;
+
+}
+
+img#muteImg {
+    height: 100%;
+}

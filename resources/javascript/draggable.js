@@ -1,3 +1,4 @@
+console.log("drraggable.js");
 
 // Code by mmaismma on Stack Overflow
 // https://stackoverflow.com/a/63425707
@@ -81,7 +82,8 @@ function filter(e) {
   target.ontouchend = endDrag;
   //NOTICE THIS 👆
 }
-document.onmousedown = filter;
+
+document.addEventListener('mousedown', filter);
 //NOTICE THIS 👇
-document.ontouchstart = filter;
+document.addEventListener('touchstart', filter)
 //NOTICE THIS 👆

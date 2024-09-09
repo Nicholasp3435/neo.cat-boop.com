@@ -1,3 +1,5 @@
+console.log("mute.js");
+
 const muteImg = document.getElementById("muteImg");
 var isMute = false;
 if (localStorage.getItem("isMute") === null) {
