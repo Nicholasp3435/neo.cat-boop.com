@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'PMD';
-    src: url('/resources/fonts/wondermail_edit.ttf') format('truetype');
+    src: url('/resources/fonts/wondermail_edit1.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -136,9 +136,12 @@ button#mute {
     width: 1rem;
     /** makes the button turn square :3 */
     background-color: white;
-
 }
 
-img#muteImg {
-    height: 100%;
+button#mute #mute-icon {
+    position: absolute;
+    top: 6px;
+    left: 3px;
+    font-family: 'PMD', sans-serif;
+    font-size: 32px;
 }
