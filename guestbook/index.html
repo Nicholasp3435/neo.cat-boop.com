@@ -68,7 +68,7 @@
 
     <script>
         async function send(message, canvas) {
-            let r = new XMLHttpRequest()
+            let r = new XMLHttpRequest();
             r.open("POST", "https://api.imgbb.com/1/upload?expiration=604800&key=28a982c96954a29ed6abe08f8e375e17", true);
 
             // Set up what happens when the request successfully completes

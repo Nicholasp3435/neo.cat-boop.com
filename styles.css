@@ -51,6 +51,19 @@ div#sillies2 {
     height: fit-content;
 }
 
+div#sillies2 h2 {
+    margin: 0;
+    margin-top: 0.333rem;
+}
+
+#moonPhase {
+    margin: 0.333rem;
+}
+
+#moonPhase img{
+    width: 100%;
+}
+
 div#sticker-sheet h2 {
     margin-top: 0;
 }

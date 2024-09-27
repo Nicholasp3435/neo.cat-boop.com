@@ -99,10 +99,10 @@ function toggleStickers() {
   if (sheet.style.visibility === "visible") {
     sheet.style.visibility = "hidden";
     sheetBtn.style.right = "0px";
-    sheetBtn.innerHTML = "<";
+    sheetBtn.innerHTML = "&#xe03c;";
   } else {
     sheet.style.visibility = "visible";
-    sheetBtn.style.right = "8.333rem";
-    sheetBtn.innerHTML = ">";
+    sheetBtn.style.right = "8.32rem";
+    sheetBtn.innerHTML = "&#xe03d;";
   }
 }

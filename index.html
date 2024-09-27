@@ -13,12 +13,13 @@
     <script>NekoType="orange"</script>
     <h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
 
-    <button id="mute" onclick="toggleSound()"><span id="mute-icon">&#xe042;</span></button>
+    <button id="mute" onclick="toggleSound()"><span id="mute-icon">&#xE042;</span></button>
     <header>
 
         <h1>nic's epic site :3</h1>
         <span>
-            <a href="/demos/">Demos</a><a href="/guestbook/">&#xe029;Guestbook</a><a href="/windows/">Windows?</a>
+            <a href="/guestbook/">&#xe029;Guestbook</a>
+            <a href="/windows/">Windows?</a>
         </span>
     </header>
 
@@ -42,11 +43,12 @@
             </div>
         </div>
 
-        <button id="sitcker-view" onclick="toggleStickers()"><</button>
+        <button id="sitcker-view" onclick="toggleStickers()">&#xe03c;</button>
 
 
         <div class="sidebar" id="sillies">    
             <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Under_construction_graphic.gif" style="width: 80%;">
+            
             <img class="button" alt="powered by linear algebra" title="powered by linear algebra" src="resources/images/buttons/8831.gif">
             <a href="https://cat-boop.com"><img class="button" alt="cat-boop.com" title="cat-boop.com" src="resources/images/buttons/cat-boop.gif"></a>
             <img class="button" alt="i really like these [bisexual] colors" title="i really like these colors" src="resources/images/buttons/bi.gif">
@@ -62,6 +64,10 @@
         </div>
 
         <div class="sidebar" id="sillies2">
+
+            <h2>Current Moon Phase</h2>
+            <div id="moonPhase"></div>
+
             <p>Click this box;<br>I <i>dare</i> you</p>
 
             <div class="boxDiv">
@@ -69,6 +75,7 @@
                 <img class="box_inside">
                 <img src="resources/images/box_front.gif" class="box_front">
             </div>
+
         </div>
 
 
@@ -82,11 +89,36 @@
                 However, I felt like I couldn't really do to much on that site since it's primary purpose was said and done. So, after pretty much finishing that site,
                 I'm making a new one to put all my personal stuff!</p>
             <p>My personal stuff I'm gonna put here is really nerdy lmao; I don't really do too much interesting stuff :þ</p>
+            <p style="margin-bottom: .5rem;">Some stuff I like:</p>
+            <ul style="margin-top: 0;">
+                <li>I like cats!</li>
+                <li>I like otters!</li>
+                <li>I like the night sky!
+                    <ul>
+                        <li>I have a pretty snazzy telescope!</li>
+                        <li>i guess i could set up a quick gallary of some pictures i take with it</li>
+                    </ul>
+                </li>
+                <li>I like to write silly computer programs :3
+                    <ul>
+                        <li>I main Java but C is growing on me</li>
+                        <li>I've recently be trying to make silly JavaScript programs too</li>
+                    </ul>
+                </li>
+                <li>I like it when I get to sleep in . . . zzzzzz</li>
+                <li>But most importantly, if not a little cheesy, I like my FRIENDS &#xE020;</li>
+                <ul>
+                    <li>HEY, YOU! I KNOW YOU'RE READING THIS</li>
+                    <li>YOU BETTER CHECK OUT MY FRIEND COCOA'S SITE</li>
+                    <li><a href="https://www.cocoamilka.art/">COCOAMILKA.ART</a></li>
+                </ul>
+            </ul>
         </section>
 
     </main>
 
     <script defer src="resources/javascript/box.js"></script>
     <script src="resources/javascript/mute.js"></script>
+    <script src="moonPhase.js"></script>
 </body>
 </html> 
