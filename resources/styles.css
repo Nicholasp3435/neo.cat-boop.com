@@ -50,7 +50,10 @@ header span {
     border-color: #828;
     border-width: 0.333rem;
     border-top: 0;
-    transform: translateX(0.333rem);
+    transform: translateX(0.333rem); 
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     
 }
 
