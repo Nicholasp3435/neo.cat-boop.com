@@ -32,7 +32,7 @@
             </li>
         </ul>
         <span>
-            <button id="power" onclick="const shutdown = new Audio('shutdown.opus'); if (!isMute) {shutdown.play();}; setTimeout( function() {window.close();history.back();}, 2000);"><img src="on-off.svg">Turn Off Computer</button>
+            <button id="power" onclick="const shutdown = new Audio('shutdown.opus'); if (!isMute) {shutdown.play();}; setTimeout( function() {window.close();window.open('/', '_self');}, 2000);"><img src="on-off.svg">Turn Off Computer</button>
         </span>
         
     </div>

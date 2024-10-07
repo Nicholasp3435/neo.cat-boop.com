@@ -39,18 +39,6 @@ button#sitcker-view {
 
 }
 
-div#sillies {
-    left: 2.5%;
-    position: absolute;
-    height: fit-content;
-}
-
-div#sillies2 {
-    right: 2.5%;
-    position: absolute;
-    height: fit-content;
-}
-
 div#sillies2 h2 {
     margin: 0;
     margin-top: 0.333rem;

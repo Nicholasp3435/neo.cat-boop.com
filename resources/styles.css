@@ -82,9 +82,8 @@ div.sidebar {
     text-align: center;
 }
 
-button.home {
+button.home, button.back {
     position: absolute;
-    top: 1rem; left: 1rem;
     z-index: 9;
     background-color: #333;
     border-style: ridge;
@@ -95,6 +94,18 @@ button.home {
     text-shadow: black 2px 2px;
     color: white;
     font-weight: bolder;
+}
+
+button.home {
+    top: 1rem; left: 1rem;
+}
+
+button.back {
+    top: 1rem; left: 4.5rem;
+}
+
+button.home:focus, button.back:focus {
+    border-style: ridge inset;
 }
 
 section.main {
@@ -131,6 +142,11 @@ section.main ul ul li {
     margin: 0rem;
 }
 
+section.main table {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
 section.main h1 {
     margin: 0.5rem;
     margin-bottom: 0;
@@ -144,10 +160,6 @@ section.main a {
 
 section.main a:visited {
     color: #f5f;
-}
-
-button.home:focus {
-    border-style: ridge inset;
 }
 
 button#mute {
@@ -167,4 +179,16 @@ button#mute #mute-icon {
     left: 3px;
     font-family: 'PMD', sans-serif;
     font-size: 32px;
+}
+
+div#sillies {
+    left: 2.5%;
+    position: absolute;
+    height: fit-content;
+}
+
+div#sillies2 {
+    right: 2.5%;
+    position: absolute;
+    height: fit-content;
 }
