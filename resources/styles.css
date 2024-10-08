@@ -54,15 +54,26 @@ header span {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
-    
 }
+
 
 header span a {
     color: #f5f;
     padding-left: 0.333rem;
     padding-right: 0.333rem;
     text-decoration: none;
+    border-right: inset #828 0.083rem;
+    border-left: inset #828 0.083rem;
 }
+
+header span a:first-child {
+    border-left: unset;
+}
+
+header span a:last-child {
+    border-right: unset;
+}
+
 
 header span a:visited {
     color: #f5f;
@@ -98,10 +109,12 @@ button.home, button.back {
 
 button.home {
     top: 1rem; left: 1rem;
+    width: 3.5rem;
 }
 
 button.back {
-    top: 1rem; left: 4.5rem;
+    top: 3rem; left: 1rem;
+    width: 3.5rem;
 }
 
 button.home:focus, button.back:focus {
@@ -130,6 +143,7 @@ section.main ul {
 
 section.main ul li {
     margin-top: 0.333rem;
+    list-style-position: outside;
 }
 
 section.main ul ul {
