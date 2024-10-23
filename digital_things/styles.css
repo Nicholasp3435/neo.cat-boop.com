@@ -1,0 +1,24 @@
+table img {
+    height: 5rem;
+    margin: 0.333rem;
+}
+
+table tr td:first-child {
+    width: 12.5%;
+}
+
+table tr td:nth-child(2) {
+    width: 25%;
+}
+
+table {
+    border-collapse: collapse;
+  }
+  
+  table tr {
+    border-top: 0.167rem inset #828;
+  }
+
+  html {
+    image-rendering: unset;
+  }
