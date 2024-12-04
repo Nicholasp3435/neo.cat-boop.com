@@ -8,23 +8,32 @@
 </head>
 
 <body>
-    <form>
-        <label for="x1">Length: </label>
-        <input type="number" id="x1" name="x1" placeholder="Length" value="100" min="0"><br>
+    <span>
+        <div>
+            <form>
+                <label for="x1">Length: </label>
+                <input type="number" id="x1" name="x1" placeholder="Length" value="100" min="0"><br>
 
-        <label for="x2">Width: </label>
-        <input type="number" id="x2" name="x2" placeholder="Width" value="100" min="0"><br>
+                <label for="x2">Width: </label>
+                <input type="number" id="x2" name="x2" placeholder="Width" value="100" min="0"><br>
 
-        <label for="y">Height: </label>
-        <input type="number" id="y" name="y" placeholder="Height" value="100" min="0"><br>
+                <label for="y">Height: </label>
+                <input type="number" id="y" name="y" placeholder="Height" value="100" min="0"><br>
 
-        <label for="units">Units: </label>
-        <select id="units" name="units">
-            <option value="in">in</option>
-            <option value="cm">cm</option>
-            <option value="mm">mm</option>
-        </select><br>
-    </form>
+                <label for="units">Units: </label>
+                <select id="units" name="units">
+                    <option value="mm">mm</option>
+                    <option value="cm">cm</option>
+                    <option value="in">in</option>
+                </select>
+            </form>
+        </div>
+
+        <div>
+            <p>Wrapping paper dims:</p>
+            <p id="dims">0 × 0</p>
+        </div>
+    </span>
 
 
   <script>
@@ -35,11 +44,12 @@
         document.body.appendChild(canvas);
         var ctx = canvas.getContext('2d');
 
-
-
         var x1_input = document.querySelector('#x1');
         var x2_input = document.querySelector('#x2');
         var y_input = document.querySelector('#y');
+        var unit_input = document.querySelector('#units');
+
+        var dims_output = document.getElementById("dims");
 
         var x_th = 1;
         var y_th = 1;
@@ -68,12 +78,27 @@
             var y_value = Math.min(Number(x1_input.value), Number(x2_input.value), Number(y_input.value));
             var x2_value = Number(x1_input.value) + Number(x2_input.value) + Number(y.value) - x1_value - y_value;
 
-
             var paper_x1 = x1_value + y_value;
             var paper_x2 = 2 * x2_value + 2 * y_value;
             var box_x1 = x1_value;
             var box_x2 = x2_value;
             var box_y = y_value;
+
+            dims_output.innerHTML = paper_x1 + " × " + paper_x2;
+
+            if (unit_input.value == "cm") {
+                x1_value *= 10;
+                x2_value *= 10;
+                y_value *= 10;
+                paper_x1 *= 10;
+                paper_x2 *= 10;
+            } else if (unit_input.value == "in") {
+                x1_value *= 25.4;
+                x2_value *= 25.4;
+                y_value *= 25.4;
+                paper_x1 *= 25.4;
+                paper_x2 *= 25.4;
+            } 
 
             for (var i = 0; i < box_coords.length; i++) {
                 box_coords[i][0] = cube_coords[i][0] * x1_value;
@@ -105,8 +130,6 @@
                 var v1 = rotate_vertex(get_face_vertices(i, 0, 1), x_th, y_th, z_th);
                 var v2 = rotate_vertex(get_face_vertices(i, 1, 1), x_th, y_th, z_th);
                 var v3 = rotate_vertex(get_face_vertices(i, 2, 1), x_th, y_th, z_th);
-
-
 
                 v1 = translate_vertex(v1, window.innerWidth/2, window.innerHeight/2, 0);
                 v2 = translate_vertex(v2, window.innerWidth/2, window.innerHeight/2, 0);
