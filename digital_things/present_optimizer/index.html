@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wrapping Paper Calculator</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="x1">Length: </label>
+        <input type="number" id="x1" name="x1" placeholder="Length" value="100" min="0"><br>
+
+        <label for="x2">Width: </label>
+        <input type="number" id="x2" name="x2" placeholder="Width" value="100" min="0"><br>
+
+        <label for="y">Height: </label>
+        <input type="number" id="y" name="y" placeholder="Height" value="100" min="0"><br>
+
+        <label for="units">Units: </label>
+        <select id="units" name="units">
+            <option value="in">in</option>
+            <option value="cm">cm</option>
+            <option value="mm">mm</option>
+        </select><br>
+    </form>
+
+
+  <script>
+        var canvas = document.createElement('canvas');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.body.appendChild(canvas);
+        var ctx = canvas.getContext('2d');
+
+        var x1_input = document.querySelector('#x1');
+        var x2_input = document.querySelector('#x2');
+        var y_input = document.querySelector('#y');
+
+        var x_th = 2;
+        var y_th = 1;
+        var z_th = 0;
+
+        var box_coords = [[ 1, -1, -1], [ 1, -1,  1], [-1, -1,  1], [-1, -1, -1], 
+                          [ 1,  1, -1], [ 1,  1,  1], [-1,  1,  1], [-1,  1, -1]];
+
+        var box_faces = [[2, 3, 4], [8, 7, 6], [5, 6, 2], [6, 7, 3], [3, 7, 8], [1, 4, 8],
+                         [1, 2, 4], [5, 8, 6], [1, 5, 2], [2, 6, 3], [4, 3, 8], [5, 1, 8]];
+
+        function draw() {
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            var x1_value = Math.max(Number(x1_input.value), Number(x2_input.value), Number(y_input.value));
+            var y_value = Math.min(Number(x1_input.value), Number(x2_input.value), Number(y_input.value));
+            var x2_value = Number(x1_input.value) + Number(x2_input.value) + Number(y.value) - x1_value - y_value;
+
+
+            var paper_x1 = x1_value + y_value;
+            var paper_x2 = 2 * x2_value + 2 * y_value;
+            var box_x1 = x1_value;
+            var box_x2 = x2_value;
+            var box_y = y_value;
+
+            for (var i = 0; i < box_faces.length; i++) {
+                var v1 = rotate_vertex(get_face_vertices(i, 0), x_th, y_th, z_th);
+                v1 = translate_vertex(v1, 3, 3, 3);
+                var v2 = rotate_vertex(get_face_vertices(i, 1), x_th, y_th, z_th);
+                v2 = translate_vertex(v2, 3, 3, 3);
+                var v3 = rotate_vertex(get_face_vertices(i, 2), x_th, y_th, z_th);
+                v3 = translate_vertex(v3, 3, 3, 3);
+
+                draw_line(v1[0], v1[1], v2[0], v2[1], 100);
+                draw_line(v2[0], v2[1], v3[0], v3[1], 100);
+                draw_line(v1[0], v1[1], v3[0], v3[1], 100);
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        // am i overcomplicating this? yus. do i like linear algebra? double yus.
+        // so do i care about overcomplicating? nope lol
+
+        function rotate_x(t) {
+            return [[1, 0, 0],
+                    [0, Math.cos(t), -Math.sin(t)],
+                    [0, Math.sin(t), Math.cos(t)]];
+        }
+
+        function rotate_y(t) {
+            return [[Math.cos(t), 0, Math.sin(t)],
+                    [0, 1, 0],
+                    [-Math.sin(t), 0, Math.cos(t)]];
+        }
+
+        function rotate_z(t) {
+            return [[Math.cos(t), -Math.sin(t), 0],
+                    [Math.sin(t), Math.cos(t), 0],
+                    [0, 0, 1]];
+        }
+
+        function multiply(m, v) {
+            return [m[0][0] * v[0] + m[0][1] * v[1] + m[0][2] * v[2],
+                    m[1][0] * v[0] + m[1][1] * v[1] + m[1][2] * v[2],
+                    m[2][0] * v[0] + m[2][1] * v[1] + m[2][2] * v[2]];
+        }
+
+        function get_face_vertices(f, p) {
+            return box_coords[box_faces[f][p] - 1];
+        }
+
+        function rotate_vertex(v, x_t, y_t, z_t) {
+            return multiply(rotate_z(z_t), multiply(rotate_y(y_t), multiply(rotate_x(x_t), v)));
+        }
+
+        function translate_vertex(v, d_x, d_y, d_z) {
+            return [v[0] + d_x, v[1] + d_y, v[2] + d_z];
+        }
+
+        function draw_line(x1, y1, x2, y2, scale) {
+            ctx.beginPath();
+            ctx.moveTo(x1 * scale, y1 * scale);
+            ctx.lineTo(x2 * scale, y2 * scale);
+            ctx.stroke();
+        }
+
+        draw();
+
+  </script>
+</body>
+</html>
