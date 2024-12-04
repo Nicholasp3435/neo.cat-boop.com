@@ -158,8 +158,6 @@
                 var normal = face_normal([v1, v2, v3]);
                 var lightness = dot(normal, light_vector);
 
-
-
                 v1 = translate_vertex(v1, 0, 200, 900);
                 v2 = translate_vertex(v2, 0, 200, 900);
                 v3 = translate_vertex(v3, 0, 200, 900);
@@ -172,8 +170,7 @@
                 v2 = translate_vertex(v2, window.innerWidth / 2, window.innerHeight / 2 - 200, 0);
                 v3 = translate_vertex(v3, window.innerWidth / 2, window.innerHeight / 2 - 200, 0);
 
-                
-                ctx.fillStyle = "rgb(" + lightness * 146 + ", "+ lightness * 73 + ", "+ lightness * 0 + ")";
+                ctx.fillStyle = "hsl(30, 100%,"  + 30 * lightness + "%)";
 
                 if (lightness > 0) {
                     ctx.beginPath();
