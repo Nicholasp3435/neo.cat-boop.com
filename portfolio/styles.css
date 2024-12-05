@@ -14,7 +14,7 @@ table tr td:nth-child(2) {
 table {
     border-collapse: collapse;
 }
-
+  
 table tr {
     border-top: 0.167rem inset #828;
 }
@@ -26,4 +26,3 @@ table img {
 body {
     image-rendering: unset;
 }
-
