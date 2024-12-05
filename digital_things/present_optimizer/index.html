@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="title" content="nic's epic website :3">
+    <meta name="description" content="check out my epic website right now!">
+    <meta content="#af6cd6" name="theme-color">
+    <link rel="stylesheet" type="text/css" href="/resources/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script defer src="/resources/javascript/mute.js"></script>
+    <title>nic's epic website :3</title>
+</head>
+
+<body>
+    <script>NekoType="orange"</script>
+    <h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
+    <button class="home" onclick="window.open('/', '_self')">Home &#xe01c;</button>
+
+    <button id="mute" onclick="toggleSound()"><span id="mute-icon">&#xE042;</span></button>
+    <header>
+        <h1>Present Wrapping Paper Optimizer</h1>
+    </header>
+
+    <main>
+        <div class="sidebar" id="sillies">
+            <h2>Optimal?</h2>
+            <p>There are no rectangular nets for cuboids.</p>
+            <p>That is to say, you cannot wrap a normal box without overlapping wrapping paper on
+                itself. 
+            </p>
+            <p>The question is, what is the size of rectangular wrapping paper that reduces
+                the amount of overlapping paper? Parts already covered don't need to be covered again!
+            </p>
+        </div>
+
+        <div class="sidebar" id="sillies2">
+            <h2>The Algorithm</h2>
+            <p>Measure the dimensions of the box. Call the shortest the height (h), the longest the 
+                length (l), and the remaining the width (w). Cut a sheet of paper with the following 
+                dimensions:
+            </p>
+            <p>One side should be the height + length<br>(h + l)</p>
+            <p>The other side should be double the height + width<br>(2×(h + w))</p>
+            <p>This results in the least wasted paper!</p>
+        </div>
+
+
+        <section class="main" >
+            <span style="display: flex">
+                <div>
+                    <form>
+                        <label for="x1">Length: </label>
+                        <input type="number" id="x1" name="x1" placeholder="Length" value="100" min="0"><br>
+            
+                        <label for="x2">Width: </label>
+                        <input type="number" id="x2" name="x2" placeholder="Width" value="100" min="0"><br>
+            
+                        <label for="y">Height: </label>
+                        <input type="number" id="y" name="y" placeholder="Height" value="100" min="0"><br>
+            
+                        <label for="units">Units: </label>
+                        <select id="units" name="units">
+                            <option value="mm">mm</option>
+                            <option value="cm">cm</option>
+                            <option value="in">in</option>
+                        </select><br>
+            
+                        <input type="range" min="0" max="6.3" value="0" step="0.1" id="rotation">
+                    </form>
+
+                    <p>Wrapping paper dims:</p>
+                    <p id="dims">0 × 0</p>
+                </div>
+
+                <div>
+                    <canvas id="canvas"></canvas>
+                </div>
+            </span>
+        </section>
+    </main>
+
+    <script src="present.js"></script>
+</body>
+</html>

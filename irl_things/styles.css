@@ -13,8 +13,16 @@ table tr td:nth-child(2) {
 
 table {
     border-collapse: collapse;
-  }
+}
   
-  table tr {
+table tr {
     border-top: 0.167rem inset #828;
-  }
+}
+
+table img {
+    border: inset #aa6b4c 2px;
+}
+
+body {
+    image-rendering: unset;
+}
