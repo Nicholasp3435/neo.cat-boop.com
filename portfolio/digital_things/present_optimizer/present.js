@@ -126,6 +126,7 @@ function draw() {
         v3 = translate_vertex(v3, canvas.width / 2, canvas.height / 2 - 200, 0);
 
         ctx.fillStyle = "hsl(30, 100%,"  + 30 * lightness + "%)";
+        ctx.strokeStyle = ctx.fillStyle;
 
         if (lightness > 0) {
             ctx.beginPath();
