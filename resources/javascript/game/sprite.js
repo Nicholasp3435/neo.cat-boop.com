@@ -5,10 +5,12 @@ export class Sprite {
      * 
      * @param x The x coordinate to create the sprite at.
      * @param y The y coordinate to create the sprite at.
+     * @param z The z level to create the sprite at.
      */
-    constructor(x, y) {
+    constructor(x, y, z, isUI = false) {
         this.x = x;
         this.y = y;
+        this.z = z;
 
         this.image = new Image();
         this.image.src = "/resources/javascript/game/default_sprite.png";
@@ -21,11 +23,15 @@ export class Sprite {
 
         this.hitbox = { x: x, y: y, w: 128, h: 128 };
 
-        this.isUI = false;
+        this.isUI = isUI;
         this.isCollidable = false;
         this.isMirrored = false;
 
-        all_sprites.push(this);
+        if (isUI) {
+            ui_sprites.push(this);
+        } else {
+            scene_sprites.push(this);
+        }
     } // constructor
 
     /**
@@ -42,26 +48,30 @@ export class Sprite {
      * Adds a custom animation to a sprite. Expects a spritesheet with known frame dimensions.
      * 
      * @param name The name of the animation to ass.
-     * @param sheetLink The link to a sprite sheet.
-     * @param frameWidth The width of each individual frame
-     * @param frameHeight The height of each individual frame
+     * @param sheet_link The link to a sprite sheet.
+     * @param frame_width The width of each individual frame
+     * @param frame_height The height of each individual frame
+     * @param animation_speed The speed to play the animation at. 1 means 1 frame per in game frame.
      * @param callback A function to run after addAnimation completes. Typically setAnimation.
      */
-    addAnimation(name, sheetLink, frameWidth, frameHeight, callback) {
-        const animationSheet = new Image(); 
+    addAnimation(name, sheet_link, frame_width, frame_height, animation_speed, callback) {
+        const animation_sheet = new Image(); 
 
-        animationSheet.onload = () => {
+        animation_sheet.onload = () => {
             const frames = [];
-            const numFramesX = animationSheet.width / frameWidth;
-            const numFramesY = animationSheet.height / frameHeight;
+            const numFramesX = animation_sheet.width / frame_width;
+            const numFramesY = animation_sheet.height / frame_height;
 
             for (let y = 0; y < numFramesY; y++) {
                 for (let x = 0; x < numFramesX; x++) {
-                    frames.push({ x: x * frameWidth, y: y * frameHeight, w: frameWidth, h: frameHeight });
+                    frames.push({ x: x * frame_width, 
+                                  y: y * frame_height, 
+                                  w: frame_width, 
+                                  h: frame_height });
                 }
             }
 
-            this.animations[name] = { frames, image: animationSheet }; 
+            this.animations[name] = { frames, image: animation_sheet, animation_speed, name}; 
 
             if (callback) {
                 callback(); 
@@ -69,7 +79,7 @@ export class Sprite {
 
         };
 
-        animationSheet.src = sheetLink;
+        animation_sheet.src = sheet_link;
     }
 
     /**
@@ -90,7 +100,12 @@ export class Sprite {
      * @param ctx The drawing context to draw the sprite in.
      * @param dt For sprites with an animation, the speed to play the animation.
      */
-    draw(ctx, dt = 0) {
+    draw(ctx) {
+        if (this.isMirrored) {
+            ctx.save();
+            ctx.scale(-1, 1); 
+            ctx.translate(-this.x * 2 - this.currentAnimation.frames[0].w, 0); 
+        }
 
         if (this.currentAnimation) {
             let frame = this.currentAnimation.frames[Math.floor(this.frameIndex)];
@@ -98,11 +113,15 @@ export class Sprite {
 
             ctx.drawImage(image, frame.x, frame.y, frame.w, frame.h, this.x, this.y, frame.w, frame.h);
     
-            this.frameIndex += dt;
+            this.frameIndex += this.currentAnimation.animation_speed;
             this.frameIndex %= this.currentAnimation.frames.length;
 
         } else if (this.image.src) {
             ctx.drawImage(this.image, this.x, this.y);
+        }
+
+        if (this.isMirrored) {
+            ctx.restore();
         }
     } // draw    
 
@@ -156,10 +175,10 @@ export class Sprite {
      * @returns True if the hitboxes will overlap within the distance to check.
      */
     willCollideWith(sprite, dx, dy) {
-        return  this.x + dx + this.hitbox.offsetX < sprite.x + sprite.hitbox.offsetX + sprite.hitbox.w &&
-                this.x + dx + this.hitbox.offsetX + this.hitbox.w > sprite.x + sprite.hitbox.offsetX &&
-                this.y + dy + this.hitbox.offsetY < sprite.y + sprite.hitbox.offsetY + sprite.hitbox.h &&
-                this.y + dy + this.hitbox.offsetY + this.hitbox.h > sprite.y + sprite.hitbox.offsetY;
+        return this.x + dx + this.hitbox.offsetX < sprite.x + sprite.hitbox.offsetX + sprite.hitbox.w &&
+               this.x + dx + this.hitbox.offsetX + this.hitbox.w > sprite.x + sprite.hitbox.offsetX &&
+               this.y + dy + this.hitbox.offsetY < sprite.y + sprite.hitbox.offsetY + sprite.hitbox.h &&
+               this.y + dy + this.hitbox.offsetY + this.hitbox.h > sprite.y + sprite.hitbox.offsetY;
     } // willCollideWith
 
     /**
@@ -175,7 +194,21 @@ export class Sprite {
     } // mouseIfOver
 } // Sprite
 
-let all_sprites = [];
+
+let scene_sprites = [];
+let ui_sprites = [];
+
+export function draw_scene_sprites(ctx) {
+    scene_sprites.forEach(sprite => {
+        sprite.draw(ctx);
+    });
+}
+
+export function draw_ui_sprites(ctx) {
+    ui_sprites.forEach(sprite => {
+        sprite.draw(ctx);
+    });
+}
 
 /**
  * Draws the hitboxes of all the scene sprites.
@@ -183,10 +216,8 @@ let all_sprites = [];
  * @param ctx The drawing context to draw in.
  */
 export function draw_scene_hitboxes(ctx) {
-    all_sprites.forEach(sprite => {
-        if (!sprite.isUI) {
-            sprite.drawHitbox(ctx);
-        }
+    scene_sprites.forEach(sprite => {
+        sprite.drawHitbox(ctx);
     });
 } // draw_scene_hitboxes
 
@@ -196,9 +227,7 @@ export function draw_scene_hitboxes(ctx) {
  * @param ctx The drawing context to draw in.
  */
 export function draw_ui_hitboxes(ctx) {
-    all_sprites.forEach(sprite => {
-        if (sprite.isUI) {
-            sprite.drawHitbox(ctx);
-        }
+    ui_sprites.forEach(sprite => {
+        sprite.drawHitbox(ctx);
     });
 } // draw_ui_hitboxes

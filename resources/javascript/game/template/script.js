@@ -1,5 +1,7 @@
 import { Sprite } from "/resources/javascript/game/sprite.js";
 import { draw_scene_hitboxes } from "/resources/javascript/game/sprite.js";
+import { draw_scene_sprites } from "/resources/javascript/game/sprite.js";
+import { draw_ui_sprites } from "/resources/javascript/game/sprite.js";
 import { draw_ui_hitboxes } from "/resources/javascript/game/sprite.js";
 
 import { Camera } from "/resources/javascript/game/camera.js";
@@ -7,6 +9,7 @@ import { Camera } from "/resources/javascript/game/camera.js";
 import { add_listeners } from "/resources/javascript/game/input.js";
 import { key_down } from "/resources/javascript/game/input.js";
 import { key_went_down } from "/resources/javascript/game/input.js";
+import { key_went_up } from "/resources/javascript/game/input.js";
 import { mouse_down } from "/resources/javascript/game/input.js";
 import { mouse_went_down } from "/resources/javascript/game/input.js";
 import { update_previous_keys_pressed } from "/resources/javascript/game/input.js";
@@ -18,29 +21,53 @@ const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 let frameCount = 0;
 
-const sprite = new Sprite(300,200);
+const sprite = new Sprite(300, 200, 0);
 sprite.setImage("appleFly.png");
 sprite.setHitbox(216, 72);
 
-const sprite2 = new Sprite(100,200);
-sprite2.setHitbox(128, 64, 0, 64);
+const sprite2 = new Sprite(100, 200, 0);
+sprite2.addAnimation("stand", "standing.png", 64, 64, 0, () => {
+    sprite2.setAnimation("stand");
+})
+sprite2.addAnimation("walk", "walking.png", 64, 64, 0.075);
+sprite2.setHitbox(64, 32, 0, 32);
 sprite2.handleMovement = function() {
-    if(key_down("ArrowRight") && !this.willCollideWith(sprite, 1, 0)) {
-        this.x+=2;
-    }
-    if(key_down("ArrowLeft") && !this.willCollideWith(sprite, -1, 0)) {
-        this.x-=2;
-    }
-    if(key_down("ArrowUp") && !this.willCollideWith(sprite, 0, -1)) {
-        this.y-=2;
-    }
-    if(key_down("ArrowDown") && !this.willCollideWith(sprite, 0, 1)) {
-        this.y+=2;
-    }
-}
+    const directions = {
+        ArrowRight: { dx: 2, dy: 0 },
+        ArrowLeft: { dx: -2, dy: 0 },
+        ArrowUp: { dx: 0, dy: -2 },
+        ArrowDown: { dx: 0, dy: 2 }
+    };
 
-const sprite3 = new Sprite(0,0);
-sprite3.addAnimation("apple", "appleFly.png", 72, 72, () => {
+    for (const [key, { dx, dy }] of Object.entries(directions)) {
+        if (key_down(key) && !this.willCollideWith(sprite, dx, dy)) {
+            if (key === "ArrowRight") {
+                this.isMirrored = true;
+            } else if (key === "ArrowLeft") {
+                this.isMirrored = false;
+            }
+            this.x += dx;
+            this.y += dy;
+            if (this.currentAnimation.name !== "walk") {
+                this.setAnimation("walk");
+            }
+        }
+    }
+
+    for (const key of Object.keys(directions)) {
+        if (key_went_up(key)) {
+            const any_key_still_down = Object.keys(directions).some(otherKey => key_down(otherKey));
+            if (!any_key_still_down) {
+                this.setAnimation("stand");
+            }
+            break;
+        }
+    }
+};
+
+
+const sprite3 = new Sprite(0,0, -1, true);
+sprite3.addAnimation("apple", "appleFly.png", 72, 72, 0.05, () => {
     sprite3.setAnimation("apple");
 });
 
@@ -77,8 +104,8 @@ function draw_scene(debug = false) {
     ctx.save();
     ctx.translate(-camera.x, -camera.y);
 
-    sprite.draw(ctx);
-    sprite2.draw(ctx);
+    draw_scene_sprites(ctx);
+
     sprite2.handleMovement();
 
     if (debug) {
@@ -94,7 +121,8 @@ function draw_scene(debug = false) {
  * @param debug Set to true to draw the hitboxes.
  */
 function draw_ui(debug = false) {
-    sprite3.draw(ctx, .05);
+    
+    draw_ui_sprites(ctx);
 
     if (debug) {
         draw_ui_hitboxes(ctx);

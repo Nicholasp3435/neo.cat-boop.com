@@ -56,6 +56,11 @@ export function key_went_down(key) {
     return keys_pressed[key] && !previous_keys_pressed[key];
 } // key_went_down
 
+
+export function key_went_up(key) {
+    return !keys_pressed[key] && previous_keys_pressed[key];
+} // key_went_down
+
 /**
  * Updates which keys are seen as being held down. 
  */
