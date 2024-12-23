@@ -195,13 +195,13 @@ button#mute #mute-icon {
     font-size: 32px;
 }
 
-div#sillies {
+div#left_bar {
     left: 2.5%;
     position: absolute;
     height: fit-content;
 }
 
-div#sillies2 {
+div#right_bar {
     right: 2.5%;
     position: absolute;
     height: fit-content;

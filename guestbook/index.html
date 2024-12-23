@@ -104,7 +104,11 @@
         // send notification
         const ntfyInput = document.getElementById("ntfy-input");
         function sendNotification() {
-            if (ntfyInput.value.length <= 0) return;
+            if (ntfyInput.value.length <= 0) {
+                ntfyInput.style.background = "#ec5858";
+                ntfyInput.placeholder = "please include a message :3";
+                return;
+            };
             send(ntfyInput.value);
         }
 

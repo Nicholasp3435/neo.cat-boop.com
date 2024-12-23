@@ -27,12 +27,12 @@ function filterBoxes(e) {
     const rand_mon = boxJumpables[getRandomInt(0, boxJumpables.length)];
 
     if (!isMute) {
-        var audio = new Audio("resources/images/eevees/sounds/" + rand_mon + ".opus");
+        var audio = new Audio("/resources/images/eevees/sounds/" + rand_mon + ".opus");
         audio.volume = 0.25;
         audio.play();
     }
 
-    box_inside.src = "resources/images/eevees/imgs/" + rand_mon + ".gif";
+    box_inside.src = "/resources/images/eevees/imgs/" + rand_mon + ".gif";
 
     setTimeout(function() {
         box_inside.classList.remove("jumping");
