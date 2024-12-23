@@ -10,11 +10,11 @@ def clean_song_name(filename):
     parts = filename.split(' ')
     for i in range(len(parts)):
         letter = parts[i][0]
-        if (ord(letter) >= 65 and ord(letter) <= 90) or (ord(letter) >= 97 and ord(letter) <= 122):
+        if (ord(letter) >= 65 and ord(letter) <= 90) or (ord(letter) >= 97 and ord(letter) <= 122) or (ord(letter) == 61):
             name = ''
             for j in range(i, len(parts)):
                 name += parts[j] + " "     
-            return name.replace('.mp3 ', '')
+            return name.replace('.mp3 ', '').replace('=', '')
 
 # Directory containing the music files
 base_dir = '.'  # Change to the path of your directory
