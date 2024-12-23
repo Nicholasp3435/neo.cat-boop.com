@@ -13,7 +13,17 @@
     <script>NekoType="orange"</script>
     <h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
 
-    <button id="mute" onclick="toggleSound()"><span id="mute-icon">&#xE042;</span></button>
+    <div id="music">
+        <audio id="audio" controls>
+            <source id="player" src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio><br>
+        <label for="songs">Select a song:</label><br>
+        <select id="songs" name="songs">
+            <option>Select Song</option>
+        </select>
+    </div>
+
     <header>
 
         <h1>nic's epic site :3</h1>
@@ -118,7 +128,7 @@
 
     </main>
 
-    <script src="resources/javascript/mute.js"></script>
+    <script type="module" src="resources/javascript/music.js"></script>
     <script src="moonPhase.js"></script>
 </body>
 </html> 

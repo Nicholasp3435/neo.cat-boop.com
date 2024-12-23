@@ -176,6 +176,13 @@ section.main a:visited {
     color: #f5f;
 }
 
+div#music {
+    position: absolute;
+    z-index: 9;
+    top: 1rem;
+    right: 1rem;
+}
+
 button#mute {
     position: absolute;
     top: 1rem;
