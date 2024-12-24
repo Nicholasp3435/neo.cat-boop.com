@@ -6,10 +6,10 @@ const moonImg = document.createElement("img");
 moonImg.classList.add("full-width");
 moonDiv.appendChild(moonImg);
 
-var date = new Date();
-date = date.toISOString();
-date = date.substring(0, date.length - 8);
-const url = "https://svs.gsfc.nasa.gov/api/dialamoon/" + date;
+var date_moon = new Date();
+date_moon = date_moon.toISOString();
+date_moon = date_moon.substring(0, date_moon.length - 8);
+const url = "https://svs.gsfc.nasa.gov/api/dialamoon/" + date_moon;
 
 var r = new XMLHttpRequest();
 
