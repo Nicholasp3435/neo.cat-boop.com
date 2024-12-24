@@ -17,6 +17,22 @@ html {
     text-rendering: geometricPrecision;
     text-shadow: black 2px 2px;
     overflow-x: hidden;
+
+    --border-color: #828;
+    --link-color: #f5f;
+    --back-img: url('/resources/images/stars.gif');
+    background-image: var(--back-img);
+    
+    header, header span, div.sidebar, section.main, table tr, button.home, button.back, button#sitcker-view {
+        border-color: var(--border-color);
+    }
+    header span, header span a:visited, section.main a, section.main a:visited {
+        color: var(--link-color);
+    }
+    header span a {
+        border-right: inset var(--border-color) 0.083rem;
+        border-left: inset var(--border-color) 0.083rem;
+    }
 }
 
 header {
@@ -168,13 +184,8 @@ section.main h1 {
     text-shadow: black 4px 4px;
 }
 
-section.main a {
-    color: #f5f;
-}
 
-section.main a:visited {
-    color: #f5f;
-}
+
 
 div#music {
     position: absolute;
