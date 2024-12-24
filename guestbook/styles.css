@@ -14,7 +14,6 @@ h2 {
 div#drawing {
     background-color: #333;
     border-style: ridge;
-    border-color: #828;
     border-width: 0.333rem;
     width: 45%;
     position: absolute;
@@ -146,7 +145,6 @@ div#drawing button#loadbtn {
 #guestbook-container {
     background-color: #333;
     border-style: ridge;
-    border-color: #828;
     border-width: 0.333rem;
     position: absolute;
     right: 1rem;

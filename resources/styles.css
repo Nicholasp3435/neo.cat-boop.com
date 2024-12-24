@@ -22,8 +22,9 @@ html {
     --link-color: #f5f;
     --back-img: url('/resources/images/stars.gif');
     background-image: var(--back-img);
-    
-    header, header span, div.sidebar, section.main, table tr, button.home, button.back, button#sitcker-view {
+
+    header, header span, div.sidebar, section.main, table tr, button.home, button.back, button#sitcker-view,
+    #guestbook-container, div#drawing {
         border-color: var(--border-color);
     }
     header span, header span a:visited, section.main a, section.main a:visited {
