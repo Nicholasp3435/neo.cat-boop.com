@@ -6,7 +6,6 @@
 }
 
 html {
-    background-image: url('/resources/images/stars.gif');
     -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: none;
     font-smooth: never;
@@ -21,6 +20,7 @@ html {
     --border-color: #828;
     --link-color: #f5f;
     --back-img: url('/resources/images/stars.gif');
+
     background-image: var(--back-img);
 
     header, header span, div.sidebar, section.main, table tr, button.home, button.back, button#sitcker-view,
@@ -34,6 +34,7 @@ html {
         color: var(--link-color);
         border-right: inset var(--border-color) 0.083rem;
         border-left: inset var(--border-color) 0.083rem;
+        
     }
 }
 
