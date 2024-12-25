@@ -41,19 +41,19 @@ let special_dates = [
         "link_color": "#f20f6b",
         "back_img": "url('/resources/images/special/hearts.gif')"
     },
-    {   // todo st pats day 
+    {   // st pats day 
         "start": {"month": 3, "day": 17},
         "end": {"month": 3, "day": 17},
-        "border_color": "#f7247a",
-        "link_color": "#f20f6b",
-        "back_img": "url('/resources/images/special/hearts.gif')"
+        "border_color": "#ff7e09",
+        "link_color": "#099d4e",
+        "back_img": "url('/resources/images/special/clovers.png')"
     },
-    {   // todo cherry blossoms (acnl dates)
+    {   // cherry blossoms (acnl dates)
         "start": {"month": 4, "day": 1},
         "end": {"month": 4, "day": 10},
         "border_color": "#f7247a",
-        "link_color": "#f20f6b",
-        "back_img": "url('/resources/images/special/hearts.gif')"
+        "link_color": "#FFB1BB",
+        "back_img": "url('/resources/images/special/petals.gif')"
     },
     {   // todo gay month
         "start": {"month": 6, "day": 1},
