@@ -1,4 +1,4 @@
-export let list = [
+let list = [
     {
         "game": "mk8",
         "songs": {
@@ -53,6 +53,35 @@ export let list = [
             "12": [
                 "Wii Rainbow Road",
                 "/mk8/4-56. Wii Rainbow Road.mp3"
+            ]
+        }
+    },
+    {
+        "game": "yoshi's island",
+        "songs": {
+            "0": [
+                "Yoshi's Island (World 6)",
+                "/yoshi's island/04 Yoshi's Island (World 6).mp3"
+            ],
+            "1": [
+                "Flower Field",
+                "/yoshi's island/08. Flower Field.mp3"
+            ],
+            "2": [
+                "Underground",
+                "/yoshi's island/13 Underground.mp3"
+            ],
+            "3": [
+                "Athletic",
+                "/yoshi's island/17 Athletic.mp3"
+            ],
+            "4": [
+                "Ground",
+                "/yoshi's island/21. Ground.mp3"
+            ],
+            "5": [
+                "Castle & Fortress (King Bowser's Castle)",
+                "/yoshi's island/Castle & Fortress (King Bowser's Castle).mp3"
             ]
         }
     },

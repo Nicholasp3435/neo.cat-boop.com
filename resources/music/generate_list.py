@@ -42,7 +42,7 @@ for subdir, _, files in os.walk(base_dir):
 
 # Write the data to a JavaScript file
 with open(output_file, 'w') as f:
-    f.write('export let list = ')
+    f.write('let list = ')
     f.write(json.dumps(music_list, indent=4, ensure_ascii=False))
     f.write(';')
 
