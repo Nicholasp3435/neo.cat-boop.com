@@ -1,5 +1,3 @@
-import { list } from "../music/list.js";
-
 console.log("music.js");
 
 const songs_list = document.getElementById("songs");
