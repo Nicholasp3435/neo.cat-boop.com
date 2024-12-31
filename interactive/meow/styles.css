@@ -1,0 +1,13 @@
+div#piano-container {
+    button.white-key {
+        background-color: white;
+        height: 10em;
+    }
+    button.black-key {
+        background-color: black;
+        height: 5em;
+    }
+    button {
+        width: 2em;
+    }
+}
