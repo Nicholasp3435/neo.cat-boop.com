@@ -176,6 +176,8 @@ function makeWindow(src, id, name, icon) {
   menu.style.visibility = "hidden";
 }
 
+document.getElementById("clock").appendChild(document.createElement('p'));
+
 function updateDateTime() {
   const now = new Date();
   document.getElementById("clock").childNodes[3].innerHTML = now.getHours() + ":" + now.getMinutes().toString().padStart(2, '0');

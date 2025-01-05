@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
     <meta name="title" content="Rainbows X3">
     <meta content="#af6cd6" name="theme-color">
@@ -13,27 +13,27 @@
         <ul>
             <li title="About">
                 <button onclick="makeWindow('about.html','about','About','help.gif');">
-                    <img src="help.gif">About</button>
+                    <img src="help.gif" alt="Get help with the computer.">About</button>
             </li>
             <li title="Cocoa Milka">
                 <button onclick="makeWindow('https://www.cocoamilka.art/','cocoamilka','Cocoa Milka','https://www.cocoamilka.art/images/icons/cocoaPlush.png');">
-                    <img src="https://www.cocoamilka.art/images/icons/cocoaPlush.png">Cocoa Milka</button>
+                    <img src="https://www.cocoamilka.art/images/icons/cocoaPlush.png" alt="Open Cocoa's webpage.">Cocoa Milka</button>
             </li>
             <li title="Cat Boop">
                 <button onclick="makeWindow('https://cat-boop.com/','cat-boop','Cat Boop','https://cat-boop.com/icns/favicon.gif');">
-                    <img src="https://cat-boop.com/icns/favicon.gif">Cat Boop</button>
+                    <img src="https://cat-boop.com/icns/favicon.gif" alt="Open the cat boop page.">Cat Boop</button>
             </li>
             <li title="Minesweeper">
                 <button onclick="makeWindow('https://minesweeper.one/','minesweeper','Minesweeper','https://minesweeper.one/images/favicon.ico');">
-                    <img src="https://minesweeper.one/images/favicon.ico">Minesweeper</button>
+                    <img src="https://minesweeper.one/images/favicon.ico" alt="Open minesweeper.">Minesweeper</button>
             </li>
             <li title="Paint">
                 <button onclick="makeWindow('https://jspaint.app/','paint','Paint','https://jspaint.app/favicon.ico');">
-                    <img src="https://jspaint.app/favicon.ico">Paint</button>
+                    <img src="https://jspaint.app/favicon.ico" alt="Open paint.">Paint</button>
             </li>
         </ul>
         <span>
-            <button id="power" onclick="const shutdown = new Audio('shutdown.opus'); if (!isMute) {shutdown.play();}; setTimeout( function() {window.close();window.open('..', '_self');}, 2000);"><img src="on-off.svg">Turn Off Computer</button>
+            <button id="power" onclick="const shutdown = new Audio('shutdown.opus'); if (!isMute) {shutdown.play();}; setTimeout( function() {window.close();window.open('..', '_self');}, 2000);"><img src="on-off.svg" alt="Turn off computer.">Turn Off Computer</button>
         </span>
         
     </div>
@@ -44,7 +44,6 @@
         <span id="windows"></span>
         <span id="clock">
             <button id="mute" onclick="toggleSound()"><span id="mute-icon">&#xe042;</span></button>
-            <p></p>
         </span>
     </div>
 
